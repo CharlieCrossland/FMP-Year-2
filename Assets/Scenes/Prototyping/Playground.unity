@@ -790,6 +790,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1117676962927796264, guid: 28186fe85ea26ca49a54d6435a82f3da, type: 3}
+      propertyPath: fireRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117676962927796264, guid: 28186fe85ea26ca49a54d6435a82f3da, type: 3}
       propertyPath: bulletSpeed
       value: 20
       objectReference: {fileID: 0}
@@ -837,6 +841,14 @@ PrefabInstance:
       propertyPath: debugDashDestination
       value: 
       objectReference: {fileID: 535182162}
+    - target: {fileID: 6898385559186172445, guid: 28186fe85ea26ca49a54d6435a82f3da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898385559186172445, guid: 28186fe85ea26ca49a54d6435a82f3da, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8119840081145588291, guid: 28186fe85ea26ca49a54d6435a82f3da, type: 3}
       propertyPath: m_Name
       value: --- Player Container ---
