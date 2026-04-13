@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
+    public static Shooting Instance;
+
     public GameObject bulletPrefab;
     public Transform shootPoint;
     public float bulletSpeed = 10f;
@@ -9,7 +11,12 @@ public class Shooting : MonoBehaviour
     bool stopShooting;
 
     float fireRateTimer;
-    public float fireRate = 0.5f;
+    public float fireRate = 0.1f;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public void Update()
     {
