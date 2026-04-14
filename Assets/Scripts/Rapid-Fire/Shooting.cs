@@ -79,11 +79,8 @@ public class Shooting : MonoBehaviour
         targ.x = targ.x - objectPos.x;
         targ.y = targ.y - objectPos.y;
 
-        //point = playerCentre.transform.position;
-
         float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
 
-        //transform.RotateAround(point, Vector3.forward, angle);
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 }

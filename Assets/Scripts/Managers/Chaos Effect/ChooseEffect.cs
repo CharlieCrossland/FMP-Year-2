@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ChooseEffect : MonoBehaviour
@@ -7,8 +8,17 @@ public class ChooseEffect : MonoBehaviour
     [SerializeField] private bool DebugStartGenerator;
     bool hasEffectBeenChosen;
 
+    int numberOfReRolls;
+
+    public static List<int> avoidList = new List<int>();
+
     [Header("References")]
     [SerializeField] private GameObject playerContainer;
+
+    private void Awake()
+    {
+        avoidList.Clear();
+    }
 
     void Update()
     {
@@ -47,70 +57,137 @@ public class ChooseEffect : MonoBehaviour
     {
         randomNumber = Random.Range(0, effectAmount);
 
-        switch ((int)randomNumber)
+        // check if number is in avoid list
+        if (isNumberInAvoidList())
         {
-            case 0:
-                ToxicGas();
-                break;
-            case 1:
-                Meteorites();
-                break;
-            case 2:
-                NoEffect();
-                break;
-            case 3:
-                TwoRandomEffects();
-                break;
-            case 4:
-                SlowFireRate();
-                break;
-            case 5:
-                BiggerPlayer();
-                break;
-            case 6:
-                TinyPlayer();
-                break;
-            case 7:
-                IcyFloor();
-                break;
+            PreventMemoryLeakReRoll();
+            DebugLogList();
+            RandomEffect();
+        }
+        else // execute chaos effect
+        {
+            switch ((int)randomNumber)
+            {
+                case 0:
+                    ToxicGas();
+                    break;
+                case 1:
+                    Meteorites();
+                    break;
+                case 2:
+                    NoEffect();
+                    break;
+                case 3:
+                    TwoRandomEffects();
+                    break;
+                case 4:
+                    SlowFireRate();
+                    break;
+                case 5:
+                    BiggerPlayer();
+                    break;
+                case 6:
+                    TinyPlayer();
+                    break;
+                case 7:
+                    IcyFloor();
+                    break;
+            }
         }
 
         hasEffectBeenChosen = true;
     }
 
+    void PreventMemoryLeakReRoll()
+    {
+        if (numberOfReRolls >= 3)
+        {
+            avoidList.Clear();
+            DebugLogList();
+        }
+    }
+
+    #region avoid list
+    private void AddNumberToAvoidList()
+    {
+        // add the generated number
+        avoidList.Add((int)randomNumber);
+    }
+
+#if UNITY_EDITOR
+    private void DebugLogList()
+    {
+        if (avoidList.Capacity == 0)
+        {
+            Debug.Log("No values present in this list.");
+        }
+
+        foreach (int x in avoidList)
+        {
+            Debug.Log(x.ToString());
+        }
+    }
+#endif
+
+    // check if random number is in a list
+    // add the random number to an avoid list
+    private bool isNumberInAvoidList()
+    {
+        if (avoidList.Contains((int)randomNumber))
+        {
+            Debug.Log("Number is already in list. Re-rolling number. Number is " + (int)randomNumber);
+
+            numberOfReRolls++;
+
+            return true;
+        }
+        else
+        {
+            AddNumberToAvoidList();
+
+            Debug.Log("Adding " + (int)randomNumber + " to avoid list.");
+
+            numberOfReRolls = 0;
+
+            return false;
+        }
+    }
+    #endregion
+
+    #region Effects
     // numbers above the void are the assigned number that the random number generator will check for
     // 0
     private void ToxicGas()
     {
-        Debug.Log("Toxic Gas. Number Generated: " + randomNumber);
+        Debug.Log("Toxic Gas. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
     }
 
     // 1
     private void Meteorites()
     {
-        Debug.Log("Meteorites. Number Generated: " + randomNumber);
+        Debug.Log("Meteorites. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
     }
 
     // 2
     private void NoEffect()
     {
-        Debug.Log("No Effect. Number Generated: " + randomNumber);
+        Debug.Log("No Effect. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
     }
 
     // 3
     private void TwoRandomEffects()
     {
-        Debug.Log("Two Random Effects. Number Generated: " + randomNumber);
+        Debug.Log("Two Random Effects. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
     }
 
     // 4
     private void SlowFireRate()
     {
-        Debug.Log("Slow Fire Rate. Number Generated: " + randomNumber);
+        Debug.Log("Slow Fire Rate. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
 
         Shooting.Instance.fireRate = 0.75f;
@@ -119,7 +196,7 @@ public class ChooseEffect : MonoBehaviour
     // 5
     private void BiggerPlayer()
     {
-        Debug.Log("Big Player. Number Generated: " + randomNumber);
+        Debug.Log("Big Player. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
 
         // makes player size 2
@@ -131,7 +208,7 @@ public class ChooseEffect : MonoBehaviour
     // 6
     private void TinyPlayer()
     {
-        Debug.Log("Tiny Player. Number Generated: " + randomNumber);
+        Debug.Log("Tiny Player. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
 
         // makes player size 0.75
@@ -141,9 +218,10 @@ public class ChooseEffect : MonoBehaviour
     // 7
     private void IcyFloor()
     {
-        Debug.Log("Icy Floor. Number Generated: " + randomNumber);
+        Debug.Log("Icy Floor. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
 
         PlayerMovement.Instance.icyFloor = true;
     }
+    #endregion
 }
