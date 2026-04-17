@@ -19,7 +19,6 @@ public class LeaderboardManager : MonoBehaviour
 
     private void Awake()
     {
-        inputField.enabled = true;
         leaderboardParent.SetActive(false);
     }
 
