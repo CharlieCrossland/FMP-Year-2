@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour
 {
     float currentHealth;
     [SerializeField] private float maxHealth;
+    bool scoreSent;
 
     private Rigidbody2D rb;
 
@@ -15,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
+        scoreSent = false;
         currentHealth = maxHealth;
     }
 
@@ -28,6 +30,12 @@ public class EnemyHealth : MonoBehaviour
         // use object pooling when available
         if (currentHealth <= 0)
         {
+            if (!scoreSent)
+            {
+                SavedVariables.Instance.currentScore += 10f;
+                scoreSent = true;
+            }
+
             Destroy(this.gameObject);
         }
     }

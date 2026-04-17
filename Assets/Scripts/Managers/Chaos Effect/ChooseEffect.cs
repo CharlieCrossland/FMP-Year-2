@@ -8,6 +8,8 @@ public class ChooseEffect : MonoBehaviour
     [SerializeField] private bool DebugStartGenerator;
     bool hasEffectBeenChosen;
 
+    string chaosEffectName;
+
     int numberOfReRolls;
 
     public static List<int> avoidList = new List<int>();
@@ -34,6 +36,8 @@ public class ChooseEffect : MonoBehaviour
             ResetValues();
 
             RandomEffect();
+
+            ChaosAnimation.Instance.StartAnimation(chaosEffectName);
         }
         else
         {
@@ -107,7 +111,7 @@ public class ChooseEffect : MonoBehaviour
         }
     }
 
-    #region avoid list
+    #region Avoid List
     private void AddNumberToAvoidList()
     {
         // add the generated number
@@ -161,6 +165,8 @@ public class ChooseEffect : MonoBehaviour
     {
         Debug.Log("Toxic Gas. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
+
+        chaosEffectName = new("New Effect: Toxic Gas");
     }
 
     // 1
@@ -168,6 +174,9 @@ public class ChooseEffect : MonoBehaviour
     {
         Debug.Log("Meteorites. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
+
+        chaosEffectName = new("New Effect: Meteorites");
+
     }
 
     // 2
@@ -175,6 +184,8 @@ public class ChooseEffect : MonoBehaviour
     {
         Debug.Log("No Effect. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
+
+        chaosEffectName = new("No Effect");
     }
 
     // 3
@@ -182,6 +193,8 @@ public class ChooseEffect : MonoBehaviour
     {
         Debug.Log("Two Random Effects. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
+
+        chaosEffectName = new("New Effect: Two Random Effects");
     }
 
     // 4
@@ -189,6 +202,8 @@ public class ChooseEffect : MonoBehaviour
     {
         Debug.Log("Slow Fire Rate. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
+
+        chaosEffectName = new("New Effect: Slow Fire Rate");
 
         Shooting.Instance.fireRate = 0.75f;
     }
@@ -198,6 +213,8 @@ public class ChooseEffect : MonoBehaviour
     {
         Debug.Log("Big Player. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
+
+        chaosEffectName = new("New Effect: Bigger Player");
 
         // makes player size 2
         playerContainer.transform.localScale = new(2, 2, 2);
@@ -211,6 +228,8 @@ public class ChooseEffect : MonoBehaviour
         Debug.Log("Tiny Player. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
 
+        chaosEffectName = new("New Effect: Tiny Player");
+
         // makes player size 0.75
         playerContainer.transform.localScale = new(0.75f, 0.75f, 0.75f);
     }
@@ -220,6 +239,8 @@ public class ChooseEffect : MonoBehaviour
     {
         Debug.Log("Icy Floor. Number Generated: " + (int)randomNumber);
         DebugStartGenerator = false;
+
+        chaosEffectName = new("New Effect: Icy Floor");
 
         PlayerMovement.Instance.icyFloor = true;
     }

@@ -20,8 +20,15 @@ public class Shooting : MonoBehaviour
 
     public void Update()
     {
-        CheckForShoot();
-        RotateGunAroundPlayer();
+        if (GameStatesManager.Instance.currentState == GameStatesManager.GameStates.GameOver)
+        {
+
+        }
+        else
+        {
+            CheckForShoot();
+            RotateGunAroundPlayer();
+        }
     }
 
     private void CheckForShoot()

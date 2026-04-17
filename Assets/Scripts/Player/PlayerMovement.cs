@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public float maxDashDistance;
     public GameObject dashOutline;
 
+    [HideInInspector] public bool canMove;
+
     private Vector3 mousePosition;
 
     public bool icyFloor;
@@ -37,14 +39,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        MovementDirection();
-        DashOutline();
+        if (GameStatesManager.Instance.currentState == GameStatesManager.GameStates.GameOver)
+        {
+
+        }
+        else
+        {
+            MovementDirection();
+            DashOutline();
+        }
     }
 
     void FixedUpdate()
     {
-        DashHandler();
-        HandleMovement();
+        if (GameStatesManager.Instance.currentState == GameStatesManager.GameStates.GameOver)
+        {
+
+        }
+        else
+        {
+            DashHandler();
+            HandleMovement();
+        }
     }
 
     void HandleMovement()
