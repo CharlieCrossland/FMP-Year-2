@@ -13,6 +13,7 @@ public class ChooseEffect : MonoBehaviour
     int numberOfReRolls;
 
     public static List<int> avoidList = new List<int>();
+    public static List<int> numbersNotAllowedIn2RandomEffects = new List<int>();
 
     [Header("References")]
     [SerializeField] private GameObject playerContainer;
@@ -20,6 +21,17 @@ public class ChooseEffect : MonoBehaviour
     private void Awake()
     {
         avoidList.Clear();
+
+        Initialize2EffectsList();
+    }
+
+    // effects that are not allowed to be used in two random effects roll
+    private void Initialize2EffectsList()
+    {
+        numbersNotAllowedIn2RandomEffects.Add(2);
+        numbersNotAllowedIn2RandomEffects.Add(3);
+        numbersNotAllowedIn2RandomEffects.Add(5);
+        numbersNotAllowedIn2RandomEffects.Add(6);
     }
 
     void Update()
@@ -55,6 +67,7 @@ public class ChooseEffect : MonoBehaviour
         Shooting.Instance.fireRate = 0.1f;
     }
 
+    #region roll for one effect
     // pick a random number which will equal a function
     // function then happens
     private void RandomEffect()
@@ -62,7 +75,7 @@ public class ChooseEffect : MonoBehaviour
         randomNumber = Random.Range(0, effectAmount);
 
         // check if number is in avoid list
-        if (isNumberInAvoidList())
+        if (isNumberInAvoidList(randomNumber))
         {
             PreventMemoryLeakReRoll();
             DebugLogList();
@@ -101,6 +114,76 @@ public class ChooseEffect : MonoBehaviour
 
         hasEffectBeenChosen = true;
     }
+    #endregion
+
+    #region roll for two effects
+
+    // get two random numbers
+    // check if numbers are available to use (E.G. not in avoid list)
+    // check if numbers are not the same to each otherq
+    private void RollForTwoEffects()
+    {
+        float x = Random.Range(0, effectAmount);
+        float y = Random.Range(0, effectAmount);
+
+        CheckNumbers(x, y);
+    }
+
+    private void CheckNumbers(float num1, float num2)
+    {
+        if (num1 == num2)
+        {
+            RollForTwoEffects();
+        }
+        else if (isNumberInAvoidList(num1) || isNumberInAvoidList(num2))
+        {
+            PreventMemoryLeakReRoll();
+            RollForTwoEffects();
+        }
+        else if (numbersNotAllowedIn2RandomEffects.Contains((int)num1) || numbersNotAllowedIn2RandomEffects.Contains((int)num2))
+        {
+            PreventMemoryLeakReRoll();
+            RollForTwoEffects();
+        }
+        else // execute the chaos effect
+        {
+            switch ((int)num1)
+            {
+                case 0:
+                    ToxicGas();
+                    break;
+                case 1:
+                    Meteorites();
+                    break;
+                case 4:
+                    SlowFireRate();
+                    break;
+                case 7:
+                    IcyFloor();
+                    break;
+            }
+
+            switch ((int)num2)
+            {
+                case 0:
+                    ToxicGas();
+                    break;
+                case 1:
+                    Meteorites();
+                    break;
+                case 4:
+                    SlowFireRate();
+                    break;
+                case 7:
+                    IcyFloor();
+                    break;
+            }
+
+            chaosEffectName = new("New Effect: Two Random Effects");
+        }
+    }
+
+    #endregion
 
     void PreventMemoryLeakReRoll()
     {
@@ -112,10 +195,10 @@ public class ChooseEffect : MonoBehaviour
     }
 
     #region Avoid List
-    private void AddNumberToAvoidList()
+    private void AddNumberToAvoidList(float num)
     {
         // add the generated number
-        avoidList.Add((int)randomNumber);
+        avoidList.Add((int)num);
     }
 
 #if UNITY_EDITOR
@@ -128,6 +211,7 @@ public class ChooseEffect : MonoBehaviour
 
         foreach (int x in avoidList)
         {
+            Debug.Log("Logging List Below:");
             Debug.Log(x.ToString());
         }
     }
@@ -135,11 +219,11 @@ public class ChooseEffect : MonoBehaviour
 
     // check if random number is in a list
     // add the random number to an avoid list
-    private bool isNumberInAvoidList()
+    private bool isNumberInAvoidList(float num)
     {
-        if (avoidList.Contains((int)randomNumber))
+        if (avoidList.Contains((int)num))
         {
-            Debug.Log("Number is already in list. Re-rolling number. Number is " + (int)randomNumber);
+            Debug.Log("Number is already in list. Re-rolling number. Number is " + (int)num);
 
             numberOfReRolls++;
 
@@ -147,9 +231,9 @@ public class ChooseEffect : MonoBehaviour
         }
         else
         {
-            AddNumberToAvoidList();
+            AddNumberToAvoidList(num);
 
-            Debug.Log("Adding " + (int)randomNumber + " to avoid list.");
+            Debug.Log("Adding " + (int)num + " to avoid list.");
 
             numberOfReRolls = 0;
 
@@ -195,6 +279,8 @@ public class ChooseEffect : MonoBehaviour
         DebugStartGenerator = false;
 
         chaosEffectName = new("New Effect: Two Random Effects");
+
+        RollForTwoEffects();
     }
 
     // 4
