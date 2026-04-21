@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,18 +44,32 @@ public class ChooseEffect : MonoBehaviour
     // to stop it from constantly picking effects, a bool will be set true when an effect has been chosen and will only be set false when the game state changes from grace period
     private void CheckGameState()
     {
-        if ((GameStatesManager.Instance.currentState == GameStatesManager.GameStates.GracePeriod && !hasEffectBeenChosen) || DebugStartGenerator)
+        if (GameStatesManager.Instance.currentState == GameStatesManager.GameStates.GracePeriod && !hasEffectBeenChosen)
         {
             ResetValues();
 
             RandomEffect();
 
             ChaosAnimation.Instance.StartAnimation(chaosEffectName);
+
+            StartCoroutine(DelayStateChange());
+
+            hasEffectBeenChosen = true;
         }
-        else
+        else if (GameStatesManager.Instance.currentState == GameStatesManager.GameStates.Playing)
         {
             hasEffectBeenChosen = false;
         }
+    }
+
+    IEnumerator DelayStateChange()
+    {
+        // wait for how long the chaos animation lasts then spawn enemies a second after
+        // animation lasts 15.5 and add 1 onto that
+        yield return new WaitForSeconds(16.5f);
+
+        GameStatesManager.Instance.currentState = GameStatesManager.GameStates.SpawnEnemies;
+        yield break;
     }
 
     // reset all values that could be changed by a chaos effect
@@ -111,8 +126,6 @@ public class ChooseEffect : MonoBehaviour
                     break;
             }
         }
-
-        hasEffectBeenChosen = true;
     }
     #endregion
 

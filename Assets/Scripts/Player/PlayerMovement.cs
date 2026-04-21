@@ -4,24 +4,29 @@ public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement Instance;
 
-    private Vector3 currentMovement;
+    [Header("References")]
     public Rigidbody2D rb;
-    public float moveSpeed;
-    public float dashSlowTimeScale;
+    public GameObject dashOutline;
 
+    [Header("Editables")]
+    public float moveSpeed;
+    public float maxDashDistance;
     private float slowTimer;
     public float maxSlowTimer;
+    public float dashSlowTimeScale;
+
+    [Header("Miscalleneous")]
+    private Vector3 currentMovement;
+
     private bool dashSlowActive;
     private bool hasSlowBeenUsed;
     private bool canDash;
-    public float maxDashDistance;
-    public GameObject dashOutline;
 
     [HideInInspector] public bool canMove;
 
     private Vector3 mousePosition;
 
-    public bool icyFloor;
+    [HideInInspector] public bool icyFloor;
 
     bool isFacingRight;
 

@@ -45,6 +45,12 @@ public class EnemyHealth : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             currentHealth -= SavedVariables.Instance.bulletDamage;
+            Destroy(other.gameObject);
         }
+    }
+
+    public void OnDestroy()
+    {
+        WaveManager.Instance.numberOfEnemies--;
     }
 }

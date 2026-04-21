@@ -1,10 +1,15 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameStatesManager : MonoBehaviour
 {
     public static GameStatesManager Instance;
+
+    [Header("Start")]
+    private float startTimer;
+    [SerializeField] private TMP_Text startCountdownText;
 
     [Header("Game Over")]
     [SerializeField] private Animator deathAnimator;
@@ -14,6 +19,7 @@ public class GameStatesManager : MonoBehaviour
     {
         Ready,
         Playing,
+        SpawnEnemies,
         GracePeriod,
         GameOver,
     };
@@ -23,6 +29,10 @@ public class GameStatesManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        currentState = GameStates.Ready;
+
+        startTimer = 5f;
     }
 
     private void Update()
@@ -32,6 +42,22 @@ public class GameStatesManager : MonoBehaviour
 
     private void CheckGameState()
     {
+        if (currentState == GameStates.Ready)
+        {
+            if (startTimer <= 0)
+            {
+                startCountdownText.enabled = false;
+                currentState = GameStates.Playing;
+            }
+            else
+            {
+                startTimer -= Time.deltaTime;
+
+                int timerInt = (int)startTimer + 1;
+                startCountdownText.enabled = true;
+                startCountdownText.SetText(timerInt.ToString());
+            }
+        }
         if (currentState == GameStates.GameOver)
         {
             StartCoroutine(GameOverState());

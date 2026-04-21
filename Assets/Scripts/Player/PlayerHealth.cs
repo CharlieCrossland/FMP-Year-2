@@ -23,13 +23,14 @@ public class PlayerHealth : MonoBehaviour
         CheckForDeath();
     }
 
-    private void CheckIfDamageCanBeTaken()
+    private void CheckIfDamageCanBeTaken(GameObject otherObject)
     {
         if (canTakeDamage == true)
         {
             // take damage and set player hit as true
             TakeDamage();
             playerHit = true;
+            Destroy(otherObject);
         }
         else
         {
@@ -76,7 +77,7 @@ public class PlayerHealth : MonoBehaviour
         if (collision.collider.CompareTag("Enemy"))
         {
             Debug.Log("Hit Enemy");
-            CheckIfDamageCanBeTaken();
+            CheckIfDamageCanBeTaken(collision.gameObject);
         }
     }
 }

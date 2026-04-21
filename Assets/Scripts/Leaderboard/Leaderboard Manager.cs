@@ -54,22 +54,26 @@ public class LeaderboardManager : MonoBehaviour
             {
                 inputFieldParent.SetActive(false);
                 leaderboardParent.SetActive(true);
-                UpdateLeaderboard(inputtedName);
+
+                AuthenticationService.Instance.UpdatePlayerNameAsync(inputtedName);
+
+                UpdateLeaderboard();
             }
         }
     }
 
     // this will constantly update itself keeping leaderboard entries up to date for as long as the player is on this scene
-    private async void UpdateLeaderboard(string playerName)
+    private async void UpdateLeaderboard()
     {
         while (Application.isPlaying)
         {
             LeaderboardScoresPage leaderboardScoresPage = await LeaderboardsService.Instance.GetScoresAsync(leaderboardID);
 
+            await AuthenticationService.Instance.GetPlayerNameAsync();
+
             foreach (Transform t in leaderboardContentParent)
             {
                 Destroy(t.gameObject);
-                // entryAmountList.Clear();
                 Debug.Log("Destroy " + t.gameObject.name);
             }
 
@@ -77,7 +81,7 @@ public class LeaderboardManager : MonoBehaviour
             for (int i = 0; i < Mathf.Min(leaderboardScoresPage.Results.Count, entryLimit); i++) 
             {
                 Transform leaderboardItem = Instantiate(leaderboardItemPrefab, leaderboardContentParent);
-                leaderboardItem.GetChild(0).GetComponent<TextMeshProUGUI>().text = playerName;
+                leaderboardItem.GetChild(0).GetComponent<TextMeshProUGUI>().text = leaderboardScoresPage.Results[i].PlayerName.ToString();
                 leaderboardItem.GetChild(1).GetComponent<TextMeshProUGUI>().text = leaderboardScoresPage.Results[i].Score.ToString();
 
                 // entryAmountList.Add(leaderboardItem.gameObject);
