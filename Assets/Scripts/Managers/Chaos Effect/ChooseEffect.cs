@@ -6,13 +6,13 @@ public class ChooseEffect : MonoBehaviour
 {
     readonly float effectAmount = 7;
     float randomNumber;
-    [SerializeField] private bool DebugStartGenerator;
     bool hasEffectBeenChosen;
 
     string chaosEffectName;
 
     int numberOfReRolls;
 
+    [Header("Lists")]
     public static List<int> avoidList = new List<int>();
     public static List<int> numbersNotAllowedIn2RandomEffects = new List<int>();
 
@@ -261,7 +261,6 @@ public class ChooseEffect : MonoBehaviour
     private void ToxicGas()
     {
         Debug.Log("Toxic Gas. Number Generated: " + (int)randomNumber);
-        DebugStartGenerator = false;
 
         chaosEffectName = new("New Effect: Toxic Gas");
     }
@@ -270,7 +269,6 @@ public class ChooseEffect : MonoBehaviour
     private void Meteorites()
     {
         Debug.Log("Meteorites. Number Generated: " + (int)randomNumber);
-        DebugStartGenerator = false;
 
         chaosEffectName = new("New Effect: Meteorites");
 
@@ -280,7 +278,6 @@ public class ChooseEffect : MonoBehaviour
     private void NoEffect()
     {
         Debug.Log("No Effect. Number Generated: " + (int)randomNumber);
-        DebugStartGenerator = false;
 
         chaosEffectName = new("No Effect");
     }
@@ -289,7 +286,6 @@ public class ChooseEffect : MonoBehaviour
     private void TwoRandomEffects()
     {
         Debug.Log("Two Random Effects. Number Generated: " + (int)randomNumber);
-        DebugStartGenerator = false;
 
         chaosEffectName = new("New Effect: Two Random Effects");
 
@@ -300,7 +296,6 @@ public class ChooseEffect : MonoBehaviour
     private void SlowFireRate()
     {
         Debug.Log("Slow Fire Rate. Number Generated: " + (int)randomNumber);
-        DebugStartGenerator = false;
 
         chaosEffectName = new("New Effect: Slow Fire Rate");
 
@@ -311,7 +306,6 @@ public class ChooseEffect : MonoBehaviour
     private void BiggerPlayer()
     {
         Debug.Log("Big Player. Number Generated: " + (int)randomNumber);
-        DebugStartGenerator = false;
 
         chaosEffectName = new("New Effect: Bigger Player");
 
@@ -325,7 +319,6 @@ public class ChooseEffect : MonoBehaviour
     private void TinyPlayer()
     {
         Debug.Log("Tiny Player. Number Generated: " + (int)randomNumber);
-        DebugStartGenerator = false;
 
         chaosEffectName = new("New Effect: Tiny Player");
 
@@ -337,7 +330,6 @@ public class ChooseEffect : MonoBehaviour
     private void IcyFloor()
     {
         Debug.Log("Icy Floor. Number Generated: " + (int)randomNumber);
-        DebugStartGenerator = false;
 
         chaosEffectName = new("New Effect: Icy Floor");
 
