@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ChooseEffect : MonoBehaviour
 {
+    public static ChooseEffect Instance;
+
     readonly float effectAmount = 7;
     float randomNumber;
     bool hasEffectBeenChosen;
@@ -12,15 +14,20 @@ public class ChooseEffect : MonoBehaviour
 
     int numberOfReRolls;
 
+    public bool haveMask;
+
     [Header("Lists")]
     public static List<int> avoidList = new List<int>();
     public static List<int> numbersNotAllowedIn2RandomEffects = new List<int>();
 
     [Header("References")]
-    [SerializeField] private GameObject playerContainer;
+    [SerializeField] private GameObject playerController;
+    [SerializeField] private GameObject toxicGasOverlay;
 
     private void Awake()
     {
+        Instance = this;
+
         avoidList.Clear();
 
         Initialize2EffectsList();
@@ -33,6 +40,11 @@ public class ChooseEffect : MonoBehaviour
         numbersNotAllowedIn2RandomEffects.Add(3);
         numbersNotAllowedIn2RandomEffects.Add(5);
         numbersNotAllowedIn2RandomEffects.Add(6);
+    }
+
+    private void Start()
+    {
+        ResetValues();
     }
 
     void Update()
@@ -69,17 +81,22 @@ public class ChooseEffect : MonoBehaviour
         yield return new WaitForSeconds(16.5f);
 
         GameStatesManager.Instance.currentState = GameStatesManager.GameStates.SpawnEnemies;
+
         yield break;
     }
 
     // reset all values that could be changed by a chaos effect
     private void ResetValues()
     {
-        playerContainer.transform.localScale = new(1, 1, 1);
+        playerController.transform.localScale = new(1, 1, 1);
         PlayerMovement.Instance.moveSpeed = 10;
 
         PlayerMovement.Instance.icyFloor = false;
         Shooting.Instance.fireRate = 0.1f;
+
+        SavedVariables.Instance.bulletDamage = 10f;
+
+        toxicGasOverlay.SetActive(false);
     }
 
     #region roll for one effect
@@ -87,7 +104,7 @@ public class ChooseEffect : MonoBehaviour
     // function then happens
     private void RandomEffect()
     {
-        randomNumber = Random.Range(0, effectAmount);
+        randomNumber = Random.Range(0, effectAmount + 1);
 
         // check if number is in avoid list
         if (isNumberInAvoidList(randomNumber))
@@ -136,8 +153,8 @@ public class ChooseEffect : MonoBehaviour
     // check if numbers are not the same to each otherq
     private void RollForTwoEffects()
     {
-        float x = Random.Range(0, effectAmount);
-        float y = Random.Range(0, effectAmount);
+        float x = Random.Range(0, effectAmount + 1);
+        float y = Random.Range(0, effectAmount + 1);
 
         CheckNumbers(x, y);
     }
@@ -214,7 +231,6 @@ public class ChooseEffect : MonoBehaviour
         avoidList.Add((int)num);
     }
 
-#if UNITY_EDITOR
     private void DebugLogList()
     {
         if (avoidList.Capacity == 0)
@@ -228,7 +244,6 @@ public class ChooseEffect : MonoBehaviour
             Debug.Log(x.ToString());
         }
     }
-#endif
 
     // check if random number is in a list
     // add the random number to an avoid list
@@ -263,6 +278,25 @@ public class ChooseEffect : MonoBehaviour
         Debug.Log("Toxic Gas. Number Generated: " + (int)randomNumber);
 
         chaosEffectName = new("New Effect: Toxic Gas");
+
+        toxicGasOverlay.SetActive(true);
+
+        StartCoroutine(TakeDamage());
+    }
+
+    IEnumerator TakeDamage()
+    {
+        if (!haveMask)
+        {
+            yield return new WaitForSeconds(10f);
+            PlayerHealth.Instance.healthAmount--;
+        }
+        else
+        {
+            yield return new WaitForSeconds(20f);
+            haveMask = false;
+        }
+        yield break;
     }
 
     // 1
@@ -299,7 +333,8 @@ public class ChooseEffect : MonoBehaviour
 
         chaosEffectName = new("New Effect: Slow Fire Rate");
 
-        Shooting.Instance.fireRate = 0.75f;
+        Shooting.Instance.fireRate = 0.4f;
+        SavedVariables.Instance.bulletDamage = 30f;
     }
 
     // 5
@@ -310,7 +345,7 @@ public class ChooseEffect : MonoBehaviour
         chaosEffectName = new("New Effect: Bigger Player");
 
         // makes player size 2
-        playerContainer.transform.localScale = new(2, 2, 2);
+        playerController.transform.localScale = new(2, 2, 2);
 
         PlayerMovement.Instance.moveSpeed -= 3;
     }
@@ -323,7 +358,7 @@ public class ChooseEffect : MonoBehaviour
         chaosEffectName = new("New Effect: Tiny Player");
 
         // makes player size 0.75
-        playerContainer.transform.localScale = new(0.75f, 0.75f, 0.75f);
+        playerController.transform.localScale = new(0.75f, 0.75f, 0.75f);
     }
 
     // 7

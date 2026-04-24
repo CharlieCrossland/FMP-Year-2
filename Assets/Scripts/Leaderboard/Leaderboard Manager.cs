@@ -33,9 +33,11 @@ public class LeaderboardManager : MonoBehaviour
     private async void Start()
     {
         await UnityServices.InitializeAsync();
-        await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
-        await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardID, SavedVariables.Instance.currentScore);
+        if (!AuthenticationService.Instance.IsSignedIn)
+        {
+            await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        }
     }
 
     private void Update()
@@ -56,6 +58,7 @@ public class LeaderboardManager : MonoBehaviour
                 leaderboardParent.SetActive(true);
 
                 AuthenticationService.Instance.UpdatePlayerNameAsync(inputtedName);
+                LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardID, SavedVariables.Instance.currentScore);
 
                 UpdateLeaderboard();
             }
@@ -71,20 +74,25 @@ public class LeaderboardManager : MonoBehaviour
 
             await AuthenticationService.Instance.GetPlayerNameAsync();
 
-            foreach (Transform t in leaderboardContentParent)
+            if(leaderboardContentParent != null)
             {
-                Destroy(t.gameObject);
-                Debug.Log("Destroy " + t.gameObject.name);
-            }
+                foreach (Transform t in leaderboardContentParent)
+                {
+                    if (t != null)
+                    {
+                        Destroy(t.gameObject);
+                    }
+                }
 
-            // Runs for either the amount of leadboard results OR 5 (entry limit), whichever is lower!
-            for (int i = 0; i < Mathf.Min(leaderboardScoresPage.Results.Count, entryLimit); i++) 
-            {
-                Transform leaderboardItem = Instantiate(leaderboardItemPrefab, leaderboardContentParent);
-                leaderboardItem.GetChild(0).GetComponent<TextMeshProUGUI>().text = leaderboardScoresPage.Results[i].PlayerName.ToString();
-                leaderboardItem.GetChild(1).GetComponent<TextMeshProUGUI>().text = leaderboardScoresPage.Results[i].Score.ToString();
+                // Runs for either the amount of leadboard results OR 5 (entry limit), whichever is lower!
+                for (int i = 0; i < Mathf.Min(leaderboardScoresPage.Results.Count, entryLimit); i++)
+                {
+                    Transform leaderboardItem = Instantiate(leaderboardItemPrefab, leaderboardContentParent);
+                    leaderboardItem.GetChild(0).GetComponent<TextMeshProUGUI>().text = leaderboardScoresPage.Results[i].PlayerName.ToString();
+                    leaderboardItem.GetChild(1).GetComponent<TextMeshProUGUI>().text = leaderboardScoresPage.Results[i].Score.ToString();
 
-                // entryAmountList.Add(leaderboardItem.gameObject);
+                    // entryAmountList.Add(leaderboardItem.gameObject);
+                }
             }
 
             /*foreach (LeaderboardEntry entry in leaderboardScoresPage.Results)

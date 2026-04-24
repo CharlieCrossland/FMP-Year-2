@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SavedVariables : MonoBehaviour
 {
@@ -7,15 +9,39 @@ public class SavedVariables : MonoBehaviour
     public float bulletDamage;
     public float currentScore;
 
+    bool resetScore;
+
     private void Awake()
     {
-        if (Instance == null)
+        if (Instance != null)
         {
-            Instance = this;
+            Destroy(this.gameObject);
+            return;
         }
-        else
+
+        Instance = this;
+
+        DontDestroyOnLoad(this);
+
+        //GameObject[] objs = GameObject.FindGameObjectsWithTag("Saved Variables");
+
+        //if (objs.Length > 1)
+        //{
+        //    Destroy(this.gameObject);
+        //}
+
+    }
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game") && !resetScore)
         {
-            Destroy(Instance);
+            currentScore = 0;
+            resetScore = true;
+        }
+        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main Menu") && resetScore)
+        {
+            resetScore = false;
         }
     }
 }

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -6,7 +7,7 @@ public class WaveManager : MonoBehaviour
 
     public int numberOfEnemies;
     private int waveCount;
-    private float waveEnemyMultiplier = 0.25f;
+    private float waveEnemyMultiplier = 0.5f;
     private float maxNumberOfEnemies;
 
     bool waveSpawned;
@@ -14,19 +15,29 @@ public class WaveManager : MonoBehaviour
 
     [SerializeField] private Transform enemyParent;
     [SerializeField] private GameObject regularEnemyPrefab;
+    [SerializeField] private TMP_Text waveCountText;
+
+    [Header("Spawn Points")]
+    private int randomSpawnNumber;
+    private Transform spawnSelected;
+    [SerializeField] private Transform LeftSpawn;
+    [SerializeField] private Transform TopSpawn;
+    [SerializeField] private Transform RightSpawn;
+    [SerializeField] private Transform BottomSpawn;
 
     private void Awake()
     {
         Instance = this;
 
         waveSpawned = false;
-        waveCount = 1;
+        waveCount = 0;
         maxNumberOfEnemies = 10;
     }
 
     private void Update()
     {
         WaveCheck();
+        WaveCountUI();
     }
 
     private void WaveCheck()
@@ -81,14 +92,38 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Instantiate(regularEnemyPrefab, enemyParent);
+        PickSpawn();
+
+        Instantiate(regularEnemyPrefab, spawnSelected.transform.position, transform.rotation, enemyParent);
+    }
+
+    // pick random spawn for enemy to spawn at
+    private void PickSpawn()
+    {
+        randomSpawnNumber = Random.Range(0, 4);
+
+        switch (randomSpawnNumber)
+        {
+            case 0:
+                spawnSelected = LeftSpawn;
+                break;
+            case 1:
+                spawnSelected = TopSpawn;
+                break;
+            case 2:
+                spawnSelected = RightSpawn;
+                break;
+            case 3:
+                spawnSelected = BottomSpawn;
+                break;
+        }
     }
 
     private void GenerateMaxNumberOfEnemies()
     {
         if (generateNewMax)
         {
-            maxNumberOfEnemies += (waveCount * waveEnemyMultiplier);
+            maxNumberOfEnemies += (waveCount / waveEnemyMultiplier);
             generateNewMax = false;
         }
     }
@@ -100,4 +135,9 @@ public class WaveManager : MonoBehaviour
             waveSpawned = true;
         }
     }
+
+    private void WaveCountUI()
+    {
+        waveCountText.SetText("Wave " + waveCount);
+    }    
 }

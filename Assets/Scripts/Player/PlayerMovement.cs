@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     public Rigidbody2D rb;
     public GameObject dashOutline;
+    [SerializeField] private Slider slider;
 
     [Header("Editables")]
     public float moveSpeed;
@@ -18,15 +20,17 @@ public class PlayerMovement : MonoBehaviour
     [Header("Miscalleneous")]
     private Vector3 currentMovement;
 
+    [Header("Dashing")]
     private bool dashSlowActive;
     private bool hasSlowBeenUsed;
     private bool canDash;
+    public float dashBarAmount;
 
     [HideInInspector] public bool canMove;
 
     private Vector3 mousePosition;
 
-    [HideInInspector] public bool icyFloor;
+    public bool icyFloor;
 
     bool isFacingRight;
 
@@ -38,8 +42,6 @@ public class PlayerMovement : MonoBehaviour
         isFacingRight = true;
 
         Cursor.lockState = CursorLockMode.Confined;
-
-        debugDashDestination.SetActive(false);
     }
 
     private void Update()
@@ -63,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            DashHandler();
+            DashBar();
             HandleMovement();
         }
     }
@@ -74,13 +76,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (!icyFloor)
         {
+            rb.linearDamping = 0f;
+
             rb.MovePosition(rb.position + (Vector2)currentMovement);
         }
         else
         {
-            rb.linearDamping = 3.5f;
+            rb.linearDamping = 1.5f;
 
-            rb.linearVelocity += Vector2.ClampMagnitude((Vector2)currentMovement, 0.1f);
+            rb.linearVelocity += Vector2.ClampMagnitude((Vector2)currentMovement, moveSpeed);
         }
     }
 
@@ -106,7 +110,6 @@ public class PlayerMovement : MonoBehaviour
 
     #region Dashing
 
-    public GameObject debugDashDestination;
     void DashHandler()
     {
         if (PlayerInputHandler.Instance.DashTriggered)
@@ -194,6 +197,7 @@ public class PlayerMovement : MonoBehaviour
                 dashSlowActive = false;
                 slowTimer = maxSlowTimer;
                 hasSlowBeenUsed = false;
+                dashBarAmount = 0;
 
                 TriggerDash();
                 Debug.Log("Player Dash");
@@ -201,13 +205,27 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void DashBar()
+    {
+        DashBarUI();
+
+        if (dashBarAmount >= 5)
+        {
+            DashHandler();
+        }
+        else
+        {
+
+        }
+    }
+
+    void DashBarUI()
+    {
+        slider.value = dashBarAmount;
+    }
+
     void TriggerDash()
     {
-        // leaves a red dot on where the player dashes to after the journey has been made
-#if UNITY_EDITOR
-        debugDashDestination.SetActive(true);
-        debugDashDestination.transform.position = new(mousePosition.x, mousePosition.y);
-#endif
         // sets the players position directly onto the mouses x and y
         // do not set z as this creates issues
         transform.position = new(mousePosition.x, mousePosition.y);

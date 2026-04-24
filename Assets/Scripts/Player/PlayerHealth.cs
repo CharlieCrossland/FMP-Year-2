@@ -1,15 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public static PlayerHealth Instance;
+
     float invincibilityTimer;
     [SerializeField] private float maxTime;
     bool playerHit;
     bool canTakeDamage;
 
     [Header("Player Health")]
-    private int healthAmount;
+    public int healthAmount;
     [SerializeField] private int maxHealthAmount;
+
+    [SerializeField] private Slider slider;
 
     private void Awake()
     {
@@ -21,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Invincibility();
         CheckForDeath();
+        HealthBarUI();
     }
 
     private void CheckIfDamageCanBeTaken(GameObject otherObject)
@@ -70,6 +76,11 @@ public class PlayerHealth : MonoBehaviour
         {
             invincibilityTimer = maxTime;
         }
+    }
+
+    void HealthBarUI()
+    {
+        slider.value = healthAmount;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
