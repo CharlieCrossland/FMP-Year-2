@@ -7,6 +7,7 @@ public class GasMask : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             ChooseEffect.Instance.haveMask = true;
+            Destroy(this.gameObject);
         }
     }
 }

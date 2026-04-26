@@ -10,7 +10,7 @@ public class ChooseEffect : MonoBehaviour
     float randomNumber;
     bool hasEffectBeenChosen;
 
-    string chaosEffectName;
+    public string chaosEffectName;
 
     int numberOfReRolls;
 
@@ -45,6 +45,8 @@ public class ChooseEffect : MonoBehaviour
     private void Start()
     {
         ResetValues();
+
+        chaosEffectName = new("No effect");
     }
 
     void Update()
@@ -277,26 +279,25 @@ public class ChooseEffect : MonoBehaviour
     {
         Debug.Log("Toxic Gas. Number Generated: " + (int)randomNumber);
 
-        chaosEffectName = new("New Effect: Toxic Gas");
+        chaosEffectName = new("New Effect: Toxic Gas (Not Implemented)");
 
-        toxicGasOverlay.SetActive(true);
+        // toxicGasOverlay.SetActive(true);
 
-        StartCoroutine(TakeDamage());
+        // TakeDamage();
     }
 
-    IEnumerator TakeDamage()
+    void TakeDamage()
     {
         if (!haveMask)
         {
-            yield return new WaitForSeconds(10f);
+            new WaitForSeconds(10f);
             PlayerHealth.Instance.healthAmount--;
         }
         else
         {
-            yield return new WaitForSeconds(20f);
+            new WaitForSeconds(20f);
             haveMask = false;
         }
-        yield break;
     }
 
     // 1
@@ -304,7 +305,7 @@ public class ChooseEffect : MonoBehaviour
     {
         Debug.Log("Meteorites. Number Generated: " + (int)randomNumber);
 
-        chaosEffectName = new("New Effect: Meteorites");
+        chaosEffectName = new("New Effect: Meteorites (Not Implemented)");
 
     }
 

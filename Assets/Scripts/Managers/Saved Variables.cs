@@ -22,14 +22,6 @@ public class SavedVariables : MonoBehaviour
         Instance = this;
 
         DontDestroyOnLoad(this);
-
-        //GameObject[] objs = GameObject.FindGameObjectsWithTag("Saved Variables");
-
-        //if (objs.Length > 1)
-        //{
-        //    Destroy(this.gameObject);
-        //}
-
     }
 
     private void Update()

@@ -891,6 +891,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28186fe85ea26ca49a54d6435a82f3da, type: 3}
+--- !u!1 &159930914012114680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8487458853001768373, guid: 28186fe85ea26ca49a54d6435a82f3da, type: 3}
+  m_PrefabInstance: {fileID: 159930914012114679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &159930914012114681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8746294845014621558, guid: 28186fe85ea26ca49a54d6435a82f3da, type: 3}
+  m_PrefabInstance: {fileID: 159930914012114679}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2986959344619051834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -960,6 +970,14 @@ PrefabInstance:
       propertyPath: playerContainer
       value: 
       objectReference: {fileID: 1974552641}
+    - target: {fileID: 2288172329987330904, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
+      propertyPath: toxicGasOverlay
+      value: 
+      objectReference: {fileID: 159930914012114680}
+    - target: {fileID: 2288172329987330904, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 159930914012114681}
     - target: {fileID: 3160684744819722535, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
