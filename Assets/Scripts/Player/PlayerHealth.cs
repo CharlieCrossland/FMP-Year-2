@@ -57,6 +57,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (healthAmount <= 0)
         {
+            healthAmount = 0;
             GameStatesManager.Instance.currentState = GameStatesManager.GameStates.GameOver;
         }
     }
