@@ -27,10 +27,7 @@ public class SavedVariables : MonoBehaviour
         Instance = this;
 
         DontDestroyOnLoad(this);
-    }
 
-    private void Start()
-    {
         bulletDamage = 12;
         maxHealth = 2;
         speed = 6;

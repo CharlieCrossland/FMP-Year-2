@@ -29,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
     private void Update()
     {
         Invincibility();
+        CapHealth();
         CheckForDeath();
         HealthBarUI();
     }
@@ -80,6 +81,18 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             invincibilityTimer = maxTime;
+        }
+    }
+
+    void CapHealth()
+    {
+        if (healthAmount >= SavedVariables.Instance.maxHealth)
+        {
+            healthAmount = SavedVariables.Instance.maxHealth;
+        }
+        else
+        {
+
         }
     }
 

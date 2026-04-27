@@ -69,9 +69,9 @@ public class Upgrades : MonoBehaviour
     {
         currencyAmountText.SetText("Currency: " + SavedVariables.Instance.currentMoney);
 
-        currentDamage.SetText(SavedVariables.Instance.bulletDamage.ToString());
-        currentHealth.SetText(SavedVariables.Instance.maxHealth.ToString());
-        currentSpeed.SetText(SavedVariables.Instance.speed.ToString());
+        currentDamage.SetText(SavedVariables.Instance.bulletDamage.ToString("F1"));
+        currentHealth.SetText(SavedVariables.Instance.maxHealth.ToString("F1"));
+        currentSpeed.SetText(SavedVariables.Instance.speed.ToString("F1"));
     }
 
     private void DisplayNewValues()
@@ -80,9 +80,9 @@ public class Upgrades : MonoBehaviour
         float y = SavedVariables.Instance.maxHealth + 1;
         float z = SavedVariables.Instance.speed + (SavedVariables.Instance.speed / 15);
 
-        newDamage.SetText(x.ToString());
-        newHealth.SetText(y.ToString());
-        newSpeed.SetText(z.ToString());
+        newDamage.SetText(x.ToString("F1"));
+        newHealth.SetText(y.ToString("F1"));
+        newSpeed.SetText(z.ToString("F1"));
     }
 
     #region BuyButtons
