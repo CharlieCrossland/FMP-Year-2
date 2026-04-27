@@ -12,13 +12,17 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Player Health")]
     public int healthAmount;
-    [SerializeField] private int maxHealthAmount;
 
     [SerializeField] private Slider slider;
 
     private void Awake()
     {
-        healthAmount = maxHealthAmount;
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        healthAmount = SavedVariables.Instance.maxHealth;
         canTakeDamage = true;
     }
 
@@ -80,6 +84,7 @@ public class PlayerHealth : MonoBehaviour
 
     void HealthBarUI()
     {
+        slider.maxValue = SavedVariables.Instance.maxHealth;
         slider.value = healthAmount;
     }
 

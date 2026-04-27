@@ -7,11 +7,12 @@ public class WaveManager : MonoBehaviour
 
     public int numberOfEnemies;
     private int waveCount;
-    private float waveEnemyMultiplier = 0.5f;
+    private float waveEnemyMultiplier = 0.3f;
     private float maxNumberOfEnemies;
 
     bool waveSpawned;
     bool generateNewMax;
+    [SerializeField] private float effectFrequency;
 
     [SerializeField] private Transform enemyParent;
     [SerializeField] private GameObject regularEnemyPrefab;
@@ -31,7 +32,7 @@ public class WaveManager : MonoBehaviour
 
         waveSpawned = false;
         waveCount = 0;
-        maxNumberOfEnemies = 10;
+        maxNumberOfEnemies = 3;
     }
 
     private void Update()
@@ -45,8 +46,6 @@ public class WaveManager : MonoBehaviour
         // wave spawning
         if (!waveSpawned && GameStatesManager.Instance.currentState == GameStatesManager.GameStates.SpawnEnemies)
         {
-            Debug.Log(GameStatesManager.Instance.currentState);
-
             for (numberOfEnemies = 0; numberOfEnemies < maxNumberOfEnemies; numberOfEnemies++)
             {
                 SpawnEnemy();
@@ -75,7 +74,7 @@ public class WaveManager : MonoBehaviour
         {
             waveCount++;
 
-            if (waveCount % 5 == 0)
+            if (waveCount % effectFrequency == 0)
             {
                 waveSpawned = false;
                 GameStatesManager.Instance.currentState = GameStatesManager.GameStates.GracePeriod;

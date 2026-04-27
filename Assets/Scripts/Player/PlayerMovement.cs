@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Slider slider;
 
     [Header("Editables")]
-    public float moveSpeed;
     public float maxDashDistance;
     private float slowTimer;
     public float maxSlowTimer;
@@ -72,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleMovement()
     {
-        currentMovement = PlayerInputHandler.Instance.MovementInput * Time.fixedDeltaTime * moveSpeed;
+        currentMovement = PlayerInputHandler.Instance.MovementInput * Time.fixedDeltaTime * SavedVariables.Instance.speed;
 
         if (!icyFloor)
         {
@@ -84,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearDamping = 1.5f;
 
-            rb.linearVelocity += Vector2.ClampMagnitude((Vector2)currentMovement, moveSpeed);
+            rb.linearVelocity += Vector2.ClampMagnitude((Vector2)currentMovement, SavedVariables.Instance.speed);
         }
     }
 

@@ -82,7 +82,7 @@ public class ChooseEffect : MonoBehaviour
         // animation lasts 15.5 and add 1 onto that
         yield return new WaitForSeconds(16.5f);
 
-        GameStatesManager.Instance.currentState = GameStatesManager.GameStates.SpawnEnemies;
+        GameStatesManager.Instance.currentState = GameStatesManager.GameStates.Upgrade;
 
         yield break;
     }
@@ -91,12 +91,9 @@ public class ChooseEffect : MonoBehaviour
     private void ResetValues()
     {
         playerController.transform.localScale = new(1, 1, 1);
-        PlayerMovement.Instance.moveSpeed = 10;
 
         PlayerMovement.Instance.icyFloor = false;
         Shooting.Instance.fireRate = 0.1f;
-
-        SavedVariables.Instance.bulletDamage = 10f;
 
         toxicGasOverlay.SetActive(false);
     }
@@ -335,7 +332,6 @@ public class ChooseEffect : MonoBehaviour
         chaosEffectName = new("New Effect: Slow Fire Rate");
 
         Shooting.Instance.fireRate = 0.4f;
-        SavedVariables.Instance.bulletDamage = 30f;
     }
 
     // 5
@@ -347,8 +343,6 @@ public class ChooseEffect : MonoBehaviour
 
         // makes player size 2
         playerController.transform.localScale = new(2, 2, 2);
-
-        PlayerMovement.Instance.moveSpeed -= 3;
     }
 
     // 6

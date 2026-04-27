@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currencyPrefab: {fileID: 215726700177322840, guid: 3898bd4259a2a09418d2b0fe7beefa5f, type: 3}
+  heartPrefab: {fileID: 4028642825402879873, guid: a34ccda2d96039d46ad7bef86c37f782, type: 3}
 --- !u!50 &4867223822494511011
 Rigidbody2D:
   serializedVersion: 5

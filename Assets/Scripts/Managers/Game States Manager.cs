@@ -21,6 +21,7 @@ public class GameStatesManager : MonoBehaviour
         Playing,
         SpawnEnemies,
         GracePeriod,
+        Upgrade,
         GameOver,
     };
 

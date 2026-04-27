@@ -11,6 +11,9 @@ public class EnemyHealth : MonoBehaviour
     private Color red = new(1, 0, 0, 1);
     private Color white = new(0, 0, 0, 1);
 
+    public Transform currencyPrefab;
+    public Transform heartPrefab;
+
     private Rigidbody2D rb;
     private SpriteRenderer sr;
 
@@ -70,6 +73,17 @@ public class EnemyHealth : MonoBehaviour
 
     public void OnDestroy()
     {
+        float x = Random.Range(0, 11);
+
+        if (x == 7)
+        {
+            Instantiate(heartPrefab, this.transform.position, this.transform.rotation);
+        }
+        else
+        {
+            Instantiate(currencyPrefab, this.transform.position, this.transform.rotation);
+        }
+
         WaveManager.Instance.numberOfEnemies--;
         PlayerMovement.Instance.dashBarAmount++;
     }

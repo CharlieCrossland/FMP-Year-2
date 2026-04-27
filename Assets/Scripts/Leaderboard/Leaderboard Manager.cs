@@ -54,13 +54,16 @@ public class LeaderboardManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                inputFieldParent.SetActive(false);
-                leaderboardParent.SetActive(true);
+                if (inputtedName != null)
+                {
+                    inputFieldParent.SetActive(false);
+                    leaderboardParent.SetActive(true);
 
-                AuthenticationService.Instance.UpdatePlayerNameAsync(inputtedName);
-                LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardID, SavedVariables.Instance.currentScore);
+                    AuthenticationService.Instance.UpdatePlayerNameAsync(inputtedName);
+                    LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardID, SavedVariables.Instance.currentScore);
 
-                UpdateLeaderboard();
+                    UpdateLeaderboard();
+                }
             }
         }
     }
