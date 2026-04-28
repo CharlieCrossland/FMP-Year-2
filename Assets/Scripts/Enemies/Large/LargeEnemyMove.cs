@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class LargeEnemyMove : MonoBehaviour
 {
@@ -9,31 +10,73 @@ public class LargeEnemyMove : MonoBehaviour
 
     [Header("Editables")]
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float maxMoveTime;
+
+    private float moveTimer;
+
+    [Header("Move")]
+    private float timer;
+    [SerializeField] private float maxTimer;
+    bool canMove;
 
     [Header("Random Speed")]
-    [SerializeField] private float minSpeed;
-    [SerializeField] private float maxSpeed;
+    [SerializeField] private float minMoveTimeRandom;
+    [SerializeField] private float maxMoveTimeRandom;
 
     private void Start()
     {
         targetOBJ = GameObject.Find("Player Controller");
         target = targetOBJ.transform;
 
-        SetRandomMoveSpeed();
+        moveSpeed = 30f;
+
+        SetRandomMoveTimer();
     }
 
-    private void SetRandomMoveSpeed()
+    private void SetRandomMoveTimer()
     {
-        moveSpeed = Random.Range(minSpeed, maxSpeed);
+        maxMoveTime = Random.Range(minMoveTimeRandom, maxMoveTimeRandom);
     }
 
     private void Update()
     {
-        SetMove();
+
+        if (canMove == true)
+        {
+            MoveEnemy();
+        }
+        else
+        {
+            MoveTimer();
+        }
     }
 
-    private void SetMove()
+    private void MoveTimer()
     {
-       // if ()
+        if (moveTimer <= 0)
+        {
+            canMove = true;
+            moveTimer = maxMoveTime;
+        }
+        else
+        {
+            moveTimer -= Time.deltaTime;
+        }
     }
+
+    private void MoveEnemy()
+    {
+        if (timer <= 0)
+        {
+            timer = maxTimer;
+            canMove = false;
+        }
+        else
+        {
+            rb.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+            timer -= Time.deltaTime;
+        }
+    }
+
+
 }

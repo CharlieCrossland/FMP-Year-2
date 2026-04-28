@@ -191,6 +191,7 @@ MonoBehaviour:
   effectFrequency: 2
   enemyParent: {fileID: 2697941466225699108}
   regularEnemyPrefab: {fileID: 5543384573194558496, guid: f7a0c2c0084a8ff4a8af27c9befcf77e, type: 3}
+  bigEnemyPrefab: {fileID: 5174978128739136474, guid: 983019bab22ee614d864de41670aa130, type: 3}
   waveCountText: {fileID: 0}
   LeftSpawn: {fileID: 1181672583345199187}
   TopSpawn: {fileID: 3150359060811140795}

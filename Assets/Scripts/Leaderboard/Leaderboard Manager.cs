@@ -93,24 +93,10 @@ public class LeaderboardManager : MonoBehaviour
                     Transform leaderboardItem = Instantiate(leaderboardItemPrefab, leaderboardContentParent);
                     leaderboardItem.GetChild(0).GetComponent<TextMeshProUGUI>().text = leaderboardScoresPage.Results[i].PlayerName.ToString();
                     leaderboardItem.GetChild(1).GetComponent<TextMeshProUGUI>().text = leaderboardScoresPage.Results[i].Score.ToString();
-
-                    // entryAmountList.Add(leaderboardItem.gameObject);
                 }
             }
 
-            /*foreach (LeaderboardEntry entry in leaderboardScoresPage.Results)
-            {
-                if (entryAmountList.Count <= entryLimit)
-                {
-                    Transform leaderboardItem = Instantiate(leaderboardItemPrefab, leaderboardContentParent);
-                    leaderboardItem.GetChild(0).GetComponent<TextMeshProUGUI>().text = playerName;
-                    leaderboardItem.GetChild(1).GetComponent<TextMeshProUGUI>().text = entry.Score.ToString();
-
-                    entryAmountList.Add(leaderboardItem.gameObject);
-                }
-            }*/
-
-            await Task.Delay(500);
+            await Task.Delay(1000);
         }
     }
 }

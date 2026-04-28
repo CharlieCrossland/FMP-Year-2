@@ -14,17 +14,21 @@ public class WaveManager : MonoBehaviour
     bool generateNewMax;
     [SerializeField] private float effectFrequency;
 
+    [Header("Prefabs")]
     [SerializeField] private Transform enemyParent;
+    private GameObject enemyPrefab;
     [SerializeField] private GameObject regularEnemyPrefab;
+    [SerializeField] private GameObject bigEnemyPrefab;
+    [SerializeField] private GameObject spearEnemyPrefab;
     [SerializeField] private TMP_Text waveCountText;
 
     [Header("Spawn Points")]
-    private int randomSpawnNumber;
-    private Transform spawnSelected;
     [SerializeField] private Transform LeftSpawn;
     [SerializeField] private Transform TopSpawn;
     [SerializeField] private Transform RightSpawn;
     [SerializeField] private Transform BottomSpawn;
+    private int randomSpawnNumber;
+    private Transform spawnSelected;
 
     private void Awake()
     {
@@ -92,8 +96,9 @@ public class WaveManager : MonoBehaviour
     private void SpawnEnemy()
     {
         PickSpawn();
+        PickEnemy();
 
-        Instantiate(regularEnemyPrefab, spawnSelected.transform.position, transform.rotation, enemyParent);
+        Instantiate(enemyPrefab, spawnSelected.transform.position, transform.rotation, enemyParent);
     }
 
     // pick random spawn for enemy to spawn at
@@ -116,6 +121,48 @@ public class WaveManager : MonoBehaviour
                 spawnSelected = BottomSpawn;
                 break;
         }
+    }
+
+    private void PickEnemy()
+    {
+        float randomEnemyNumber = Random.Range(0, 11);
+
+        switch (randomEnemyNumber)
+        {
+            case 0:
+                enemyPrefab = regularEnemyPrefab;
+                break;
+            case 1:
+                enemyPrefab = regularEnemyPrefab;
+                break;
+            case 2:
+                enemyPrefab = bigEnemyPrefab;
+                break;
+            case 3:
+                enemyPrefab = regularEnemyPrefab;
+                break;
+            case 4:
+                enemyPrefab = bigEnemyPrefab;
+                break;
+            case 5:
+                enemyPrefab = regularEnemyPrefab;
+                break;
+            case 6:
+                enemyPrefab = regularEnemyPrefab;
+                break;
+            case 7:
+                enemyPrefab = regularEnemyPrefab;
+                break;
+            case 8:
+                enemyPrefab = regularEnemyPrefab;
+                break;
+            case 9:
+                enemyPrefab = regularEnemyPrefab;
+                break;
+            case 10:
+                enemyPrefab = regularEnemyPrefab;
+                break;
+        }    
     }
 
     private void GenerateMaxNumberOfEnemies()
