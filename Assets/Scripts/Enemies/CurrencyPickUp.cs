@@ -6,14 +6,14 @@ public class CurrencyPickUp : MonoBehaviour
 
     private void Start()
     {
-        value = Random.Range(5, 41);
+        value = Random.Range(2, 16);
 
         ChangeModel();
     }
 
     private void ChangeModel()
     {
-        if (value >= 30)
+        if (value >= 13)
         {
             Debug.Log("Change to gold");
         }

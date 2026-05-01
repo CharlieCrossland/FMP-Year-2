@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: 1e93e7b7b611e344eb349cdf1370d015
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2455018367155080350
+    second: UI_Paper_Logos_Free_0
+  - first:
+      213: -977495408161688273
+    second: UI_Paper_Logos_Free_1
+  - first:
+      213: 3283466194845581305
+    second: UI_Paper_Logos_Free_2
+  - first:
+      213: -1313285458833585842
+    second: UI_Paper_Logos_Free_3
+  - first:
+      213: -7362137021262471931
+    second: UI_Paper_Logos_Free_4
+  - first:
+      213: -8736937586787485254
+    second: UI_Paper_Logos_Free_5
+  - first:
+      213: 3619186722908518697
+    second: UI_Paper_Logos_Free_6
+  - first:
+      213: 5552280904370988849
+    second: UI_Paper_Logos_Free_7
+  - first:
+      213: -8753816238532264148
+    second: UI_Paper_Logos_Free_8
+  - first:
+      213: 2689101826636387925
+    second: UI_Paper_Logos_Free_9
+  - first:
+      213: -2137049179121340957
+    second: UI_Paper_Logos_Free_10
+  - first:
+      213: 5609340580691777913
+    second: UI_Paper_Logos_Free_11
+  - first:
+      213: 2504904793837451432
+    second: UI_Paper_Logos_Free_12
+  - first:
+      213: -7134545356929624699
+    second: UI_Paper_Logos_Free_13
+  - first:
+      213: -7712391141012608798
+    second: UI_Paper_Logos_Free_14
+  - first:
+      213: -8621925522108325215
+    second: UI_Paper_Logos_Free_15
+  - first:
+      213: -5300090291588494284
+    second: UI_Paper_Logos_Free_16
+  - first:
+      213: -5648996361661207829
+    second: UI_Paper_Logos_Free_17
+  - first:
+      213: 9032704586023682692
+    second: UI_Paper_Logos_Free_18
+  - first:
+      213: 7293697000636638150
+    second: UI_Paper_Logos_Free_19
+  - first:
+      213: -4400998416720018492
+    second: UI_Paper_Logos_Free_20
+  - first:
+      213: 1730748176779190186
+    second: UI_Paper_Logos_Free_21
+  - first:
+      213: 784041262552609588
+    second: UI_Paper_Logos_Free_22
+  - first:
+      213: -8430727633068974622
+    second: UI_Paper_Logos_Free_23
+  - first:
+      213: -4756931565655474236
+    second: UI_Paper_Logos_Free_24
+  - first:
+      213: 5698876311340221780
+    second: UI_Paper_Logos_Free_25
+  - first:
+      213: 713846651803752000
+    second: UI_Paper_Logos_Free_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: VisionOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 37
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9c865b923af11220800000000000000
+      internalID: 2455018367155080350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 37
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2572f2fa1d3f62f0800000000000000
+      internalID: -977495408161688273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 37
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ff36cf8b17319d20800000000000000
+      internalID: 3283466194845581305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_3
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 37
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e49c98155d546cde0800000000000000
+      internalID: -1313285458833585842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_4
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 37
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50dd5eba26f64d990800000000000000
+      internalID: -7362137021262471931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_5
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 37
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab9f5ca1e8920c680800000000000000
+      internalID: -8736937586787485254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_6
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 41
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 929b5c2362fe93230800000000000000
+      internalID: 3619186722908518697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_7
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 41
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 137a736b01aad0d40800000000000000
+      internalID: 5552280904370988849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_8
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 41
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2ffc31c282348680800000000000000
+      internalID: -8753816238532264148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_9
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 37
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55614852ddb915520800000000000000
+      internalID: 2689101826636387925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_10
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 37
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3edaeea181da752e0800000000000000
+      internalID: -2137049179121340957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_11
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 37
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9791150e98168dd40800000000000000
+      internalID: 5609340580691777913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_12
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 38
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a8bad073a533c220800000000000000
+      internalID: 2504904793837451432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_13
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 38
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5851c4e5cc00dfc90800000000000000
+      internalID: -7134545356929624699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_14
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 38
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e8e2178e1518f490800000000000000
+      internalID: -7712391141012608798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_15
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 38
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a2ebd62b64c85880800000000000000
+      internalID: -8621925522108325215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_16
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 38
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43c0f5cf5fb4276b0800000000000000
+      internalID: -5300090291588494284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_17
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 38
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beaa5bd1dbbba91b0800000000000000
+      internalID: -5648996361661207829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_18
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 5
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 482cbf2b6fc9a5d70800000000000000
+      internalID: 9032704586023682692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_19
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 5
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c3674647ca683560800000000000000
+      internalID: 7293697000636638150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_20
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 5
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c3c85ae1438ce2c0800000000000000
+      internalID: -4400998416720018492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_21
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 5
+        width: 7
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaf14900c4ad40810800000000000000
+      internalID: 1730748176779190186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_22
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 13
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43372bfcf5971ea00800000000000000
+      internalID: 784041262552609588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_23
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 5
+        width: 7
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ed9ad8b2e9000b80800000000000000
+      internalID: -8430727633068974622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_24
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 13
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cf3340c1fbfbfdb0800000000000000
+      internalID: -4756931565655474236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_25
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 5
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 455825cafc9761f40800000000000000
+      internalID: 5698876311340221780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Paper_Logos_Free_26
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 5
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0465dd86fb718e900800000000000000
+      internalID: 713846651803752000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      UI_Paper_Logos_Free_0: 2455018367155080350
+      UI_Paper_Logos_Free_1: -977495408161688273
+      UI_Paper_Logos_Free_10: -2137049179121340957
+      UI_Paper_Logos_Free_11: 5609340580691777913
+      UI_Paper_Logos_Free_12: 2504904793837451432
+      UI_Paper_Logos_Free_13: -7134545356929624699
+      UI_Paper_Logos_Free_14: -7712391141012608798
+      UI_Paper_Logos_Free_15: -8621925522108325215
+      UI_Paper_Logos_Free_16: -5300090291588494284
+      UI_Paper_Logos_Free_17: -5648996361661207829
+      UI_Paper_Logos_Free_18: 9032704586023682692
+      UI_Paper_Logos_Free_19: 7293697000636638150
+      UI_Paper_Logos_Free_2: 3283466194845581305
+      UI_Paper_Logos_Free_20: -4400998416720018492
+      UI_Paper_Logos_Free_21: 1730748176779190186
+      UI_Paper_Logos_Free_22: 784041262552609588
+      UI_Paper_Logos_Free_23: -8430727633068974622
+      UI_Paper_Logos_Free_24: -4756931565655474236
+      UI_Paper_Logos_Free_25: 5698876311340221780
+      UI_Paper_Logos_Free_26: 713846651803752000
+      UI_Paper_Logos_Free_3: -1313285458833585842
+      UI_Paper_Logos_Free_4: -7362137021262471931
+      UI_Paper_Logos_Free_5: -8736937586787485254
+      UI_Paper_Logos_Free_6: 3619186722908518697
+      UI_Paper_Logos_Free_7: 5552280904370988849
+      UI_Paper_Logos_Free_8: -8753816238532264148
+      UI_Paper_Logos_Free_9: 2689101826636387925
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

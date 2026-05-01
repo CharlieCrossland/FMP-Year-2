@@ -14,7 +14,7 @@ public class SavedVariables : MonoBehaviour
     public float currentScore;
     public float currentMoney;
 
-    bool resetScore;
+    bool resetVariables;
 
     private void Awake()
     {
@@ -35,14 +35,17 @@ public class SavedVariables : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game") && !resetScore)
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game") && !resetVariables)
         {
             currentScore = 0;
-            resetScore = true;
+            bulletDamage = 12;
+            maxHealth = 2;
+            speed = 6;
+            resetVariables = true;
         }
-        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main Menu") && resetScore)
+        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main Menu") && resetVariables)
         {
-            resetScore = false;
+            resetVariables = false;
         }
     }
 }

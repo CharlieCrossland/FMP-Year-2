@@ -13,6 +13,9 @@ public class Shooting : MonoBehaviour
     float fireRateTimer;
     public float fireRate = 0.1f;
 
+    //[Header("Gun Flip")]
+    //[SerializeField] private bool flip;
+
     private void Awake()
     {
         Instance = this;
@@ -28,6 +31,7 @@ public class Shooting : MonoBehaviour
         {
             CheckForShoot();
             RotateGunAroundPlayer();
+            FlipGun();
         }
     }
 
@@ -90,4 +94,50 @@ public class Shooting : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
+
+    [SerializeField] private SpriteRenderer sr;
+    private void FlipGun()
+    {
+        float zRotation = transform.eulerAngles.z;
+        // Flip when aiming left
+        if (zRotation > 90f && zRotation < 270f)
+        {
+            sr.flipY = true;
+        }
+        else
+        {
+            sr.flipY = false;
+        }
+    }
+
+    //private void FlipGun()
+    //{
+    //    if (transform.rotation.z >= 90 && flip == false)
+    //    {
+    //        sr.flipX = true;
+
+    //        Debug.Log("Flip");
+
+    //        flip = true;
+    //    }
+    //    else if (transform.rotation.z < 90 && flip == true)
+    //    {
+    //        sr.flipX = false;
+
+    //        flip = false;
+    //    }
+
+    //    if (transform.rotation.z <= -90 && flip == false)
+    //    {
+    //        transform.Rotate(0, 180, 0);
+
+    //        flip = true;
+    //    }
+    //    else if (transform.rotation.z > -90 && flip == true)
+    //    {
+    //        transform.Rotate(0, 180, 0);
+
+    //        flip = false;
+    //    }
+    //}
 }

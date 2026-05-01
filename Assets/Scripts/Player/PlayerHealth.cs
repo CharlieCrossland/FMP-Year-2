@@ -13,8 +13,6 @@ public class PlayerHealth : MonoBehaviour
     [Header("Player Health")]
     public int healthAmount;
 
-    [SerializeField] private Slider slider;
-
     private void Awake()
     {
         Instance = this;
@@ -31,7 +29,6 @@ public class PlayerHealth : MonoBehaviour
         Invincibility();
         CapHealth();
         CheckForDeath();
-        HealthBarUI();
     }
 
     private void CheckIfDamageCanBeTaken(GameObject otherObject)
@@ -52,6 +49,7 @@ public class PlayerHealth : MonoBehaviour
     private void TakeDamage()
     {
         healthAmount -= 1;
+        HeartUI.Instance.DrawHearts();
     }
 
     private void CheckForDeath()
@@ -94,12 +92,6 @@ public class PlayerHealth : MonoBehaviour
         {
 
         }
-    }
-
-    void HealthBarUI()
-    {
-        slider.maxValue = SavedVariables.Instance.maxHealth;
-        slider.value = healthAmount;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

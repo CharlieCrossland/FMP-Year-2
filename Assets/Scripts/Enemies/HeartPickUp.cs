@@ -7,6 +7,7 @@ public class HeartPickUp : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             PlayerHealth.Instance.healthAmount += 1;
+            HeartUI.Instance.DrawHearts();
             Destroy(this.gameObject);
         }
     }

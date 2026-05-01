@@ -6,8 +6,8 @@ public class WaveManager : MonoBehaviour
     public static WaveManager Instance;
 
     public int numberOfEnemies;
-    private int waveCount;
-    private float waveEnemyMultiplier = 0.3f;
+    public int waveCount;
+    private float waveEnemyMultiplier = 1.5f;
     private float maxNumberOfEnemies;
 
     bool waveSpawned;

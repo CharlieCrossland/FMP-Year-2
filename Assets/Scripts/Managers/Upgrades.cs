@@ -4,9 +4,9 @@ using UnityEngine;
 public class Upgrades : MonoBehaviour
 {
     [Header("Costs")]
-    private int damageCost = 50;
+    private int damageCost = 35;
     private int healthCost = 50;
-    private int speedCost = 50;
+    private int speedCost = 20;
 
     bool upgradeMenuDropped;
 
@@ -91,7 +91,7 @@ public class Upgrades : MonoBehaviour
     {
         if (SavedVariables.Instance.currentMoney >= damageCost)
         {
-            SavedVariables.Instance.bulletDamage += (SavedVariables.Instance.bulletDamage / 5);
+            SavedVariables.Instance.bulletDamage += (SavedVariables.Instance.bulletDamage / 3);
 
             SavedVariables.Instance.currentMoney -= damageCost;
 
@@ -107,6 +107,8 @@ public class Upgrades : MonoBehaviour
 
             SavedVariables.Instance.currentMoney -= healthCost;
 
+            HeartUI.Instance.DrawHearts();
+
             healthCost += (healthCost / 10);
         }
     }
@@ -115,7 +117,7 @@ public class Upgrades : MonoBehaviour
     {
         if (SavedVariables.Instance.currentMoney >= speedCost)
         {
-            SavedVariables.Instance.speed += (SavedVariables.Instance.speed / 15);
+            SavedVariables.Instance.speed += (SavedVariables.Instance.speed / 10);
 
             SavedVariables.Instance.currentMoney -= speedCost;
 
