@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7049404183522975546}
   - component: {fileID: 2786724948263280066}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,9 +100,9 @@ GameObject:
   - component: {fileID: 3313265726773571701}
   - component: {fileID: 6168046609490027960}
   - component: {fileID: 6419347303953484307}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BigEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

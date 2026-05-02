@@ -47,6 +47,7 @@ public class EnemyHealth : MonoBehaviour
                 scoreSent = true;
             }
 
+            EnemyDrop();
             Destroy(this.gameObject);
         }
     }
@@ -71,11 +72,11 @@ public class EnemyHealth : MonoBehaviour
         yield break;
     }
 
-    public void OnDestroy()
+    public void EnemyDrop()
     {
         float x = Random.Range(0, 11);
 
-        if (x == 7)
+        if (x == 7 && PlayerHealth.Instance.healthAmount != SavedVariables.Instance.maxHealth)
         {
             Instantiate(heartPrefab, this.transform.position, this.transform.rotation);
         }
@@ -84,6 +85,10 @@ public class EnemyHealth : MonoBehaviour
             Instantiate(currencyPrefab, this.transform.position, this.transform.rotation);
         }
 
+    }
+
+    private void OnDestroy()
+    {
         WaveManager.Instance.numberOfEnemies--;
         PlayerMovement.Instance.dashBarAmount++;
     }
