@@ -81,9 +81,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            rb.linearDamping = 1.5f;
+            rb.linearDamping = 1.3f;
 
-            rb.linearVelocity += Vector2.ClampMagnitude((Vector2)currentMovement, SavedVariables.Instance.speed);
+            rb.linearVelocity += Vector2.ClampMagnitude((Vector2)currentMovement, SavedVariables.Instance.speed + 3);
         }
     }
 

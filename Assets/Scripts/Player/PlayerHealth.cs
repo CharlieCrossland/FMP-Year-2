@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -12,6 +12,10 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Player Health")]
     public int healthAmount;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource hitSource;
+    [SerializeField] private AudioSource deathSource;
 
     private void Awake()
     {
@@ -37,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
         {
             // take damage and set player hit as true
             TakeDamage();
+            HitAudio();
             playerHit = true;
             Destroy(otherObject);
         }
@@ -56,6 +61,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (healthAmount <= 0)
         {
+            DeathAudio();
             healthAmount = 0;
             GameStatesManager.Instance.currentState = GameStatesManager.GameStates.GameOver;
         }
@@ -101,5 +107,24 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Hit Enemy");
             CheckIfDamageCanBeTaken(collision.gameObject);
         }
+    }
+
+    IEnumerator HitAudio()
+    {
+        hitSource.pitch = healthAmount - 2;
+        if (!hitSource.isPlaying)
+        {
+            hitSource.Play();
+        }
+        yield break;
+    }
+
+    IEnumerator DeathAudio()
+    {
+        if (!deathSource.isPlaying)
+        {
+            deathSource.Play();
+        }
+        yield break;
     }
 }
