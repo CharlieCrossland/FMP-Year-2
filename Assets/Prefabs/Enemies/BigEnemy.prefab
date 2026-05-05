@@ -137,11 +137,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6168046609490027960}
   target: {fileID: 0}
-  moveSpeed: 50
+  moveSpeed: 35
   maxMoveTime: 0
-  maxTimer: 1.05
-  minMoveTimeRandom: 0.5
-  maxMoveTimeRandom: 0.9
+  maxTimer: 1.35
+  minMoveTimeRandom: 0.3
+  maxMoveTimeRandom: 0.55
 --- !u!114 &3313265726773571701
 MonoBehaviour:
   m_ObjectHideFlags: 0

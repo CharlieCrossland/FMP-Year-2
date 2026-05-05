@@ -28,8 +28,6 @@ public class LargeEnemyMove : MonoBehaviour
         targetOBJ = GameObject.Find("Player Controller");
         target = targetOBJ.transform;
 
-        moveSpeed = 30f;
-
         SetRandomMoveTimer();
     }
 

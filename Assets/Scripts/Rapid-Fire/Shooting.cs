@@ -6,12 +6,12 @@ public class Shooting : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform shootPoint;
-    public float bulletSpeed = 10f;
+    public float bulletSpeed = 16f;
 
     bool stopShooting;
 
     float fireRateTimer;
-    public float fireRate = 0.1f;
+    public float fireRate = 0.16f;
 
     //[Header("Gun Flip")]
     //[SerializeField] private bool flip;

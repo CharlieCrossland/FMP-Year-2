@@ -1,19 +1,14 @@
-using TMPro;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms;
-using UnityEngine.SocialPlatforms.Impl;
+
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject title;
     [SerializeField] private GameObject mainMenu;
+    [SerializeField] private Animator animator;
 
-    private void Awake()
-    {
-        title.SetActive(true);
-        mainMenu.SetActive(false);
-    }
 
     private void Update()
     {
@@ -24,24 +19,33 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            title.SetActive(false);
-            mainMenu.SetActive(true);
+            animator.SetTrigger("titleInput");
         }
     }
 
     public void Play()
     {
+        StartCoroutine(playAnimation());
+    }
+
+    private IEnumerator playAnimation()
+    {
+        animator.SetTrigger("play");
+        yield return new WaitForSeconds(1.8f);
         SceneManager.LoadScene("Game");
+        yield break;
     }
 
     public void Exit()
     {
-        Application.Quit();
+        StartCoroutine(exitAnimation());
     }
 
-    public void BackToMain()
+    private IEnumerator exitAnimation()
     {
-        title.SetActive(false);
-        mainMenu.SetActive(true);
+        animator.SetTrigger("exit");
+        yield return new WaitForSeconds(2.2f);
+        Application.Quit();
+        yield break;
     }
 }

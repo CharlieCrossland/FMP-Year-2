@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ChooseEffect : MonoBehaviour
@@ -93,9 +94,9 @@ public class ChooseEffect : MonoBehaviour
         playerController.transform.localScale = new(1, 1, 1);
 
         PlayerMovement.Instance.icyFloor = false;
-        Shooting.Instance.fireRate = 0.1f;
+        Shooting.Instance.fireRate = 0.16f;
 
-        toxicGasOverlay.SetActive(false);
+        // toxicGasOverlay.SetActive(false);
     }
 
     #region roll for one effect
@@ -158,6 +159,8 @@ public class ChooseEffect : MonoBehaviour
         CheckNumbers(x, y);
     }
 
+    string effect1;
+    string effect2;
     private void CheckNumbers(float num1, float num2)
     {
         if (num1 == num2)
@@ -180,15 +183,19 @@ public class ChooseEffect : MonoBehaviour
             {
                 case 0:
                     ToxicGas();
+                    effect1 = new("Toxic Gas");
                     break;
                 case 1:
                     Meteorites();
+                    effect1 = new("Meteorites");
                     break;
                 case 4:
                     SlowFireRate();
+                    effect1 = new("Slow Fire Rate");
                     break;
                 case 7:
                     IcyFloor();
+                    effect1 = new("Icy Floor");
                     break;
             }
 
@@ -196,19 +203,23 @@ public class ChooseEffect : MonoBehaviour
             {
                 case 0:
                     ToxicGas();
+                    effect2 = new("Toxic Gas");
                     break;
                 case 1:
                     Meteorites();
+                    effect2 = new("Meteorites");
                     break;
                 case 4:
                     SlowFireRate();
+                    effect2 = new("Slow Fire Rate");
                     break;
                 case 7:
                     IcyFloor();
+                    effect2 = new("Icy Floor");
                     break;
             }
 
-            chaosEffectName = new("New Effect: Two Random Effects");
+            chaosEffectName = new("New Effect: Two Random Effects (" + effect1 + (" , ") + effect2 + (")"));
         }
     }
 
@@ -250,7 +261,7 @@ public class ChooseEffect : MonoBehaviour
     {
         if (avoidList.Contains((int)num))
         {
-            Debug.Log("Number is already in list. Re-rolling number. Number is " + (int)num);
+            //Debug.Log("Number is already in list. Re-rolling number. Number is " + (int)num);
 
             numberOfReRolls++;
 
@@ -260,7 +271,7 @@ public class ChooseEffect : MonoBehaviour
         {
             AddNumberToAvoidList(num);
 
-            Debug.Log("Adding " + (int)num + " to avoid list.");
+            //Debug.Log("Adding " + (int)num + " to avoid list.");
 
             numberOfReRolls = 0;
 
@@ -274,7 +285,7 @@ public class ChooseEffect : MonoBehaviour
     // 0
     private void ToxicGas()
     {
-        Debug.Log("Toxic Gas. Number Generated: " + (int)randomNumber);
+        //Debug.Log("Toxic Gas. Number Generated: " + (int)randomNumber);
 
         chaosEffectName = new("New Effect: Toxic Gas (Not Implemented)");
 
@@ -300,7 +311,7 @@ public class ChooseEffect : MonoBehaviour
     // 1
     private void Meteorites()
     {
-        Debug.Log("Meteorites. Number Generated: " + (int)randomNumber);
+        //Debug.Log("Meteorites. Number Generated: " + (int)randomNumber);
 
         chaosEffectName = new("New Effect: Meteorites (Not Implemented)");
 
@@ -309,7 +320,7 @@ public class ChooseEffect : MonoBehaviour
     // 2
     private void NoEffect()
     {
-        Debug.Log("No Effect. Number Generated: " + (int)randomNumber);
+        //Debug.Log("No Effect. Number Generated: " + (int)randomNumber);
 
         chaosEffectName = new("No Effect");
     }
@@ -317,7 +328,7 @@ public class ChooseEffect : MonoBehaviour
     // 3
     private void TwoRandomEffects()
     {
-        Debug.Log("Two Random Effects. Number Generated: " + (int)randomNumber);
+        //Debug.Log("Two Random Effects. Number Generated: " + (int)randomNumber);
 
         chaosEffectName = new("New Effect: Two Random Effects");
 
@@ -327,17 +338,17 @@ public class ChooseEffect : MonoBehaviour
     // 4
     private void SlowFireRate()
     {
-        Debug.Log("Slow Fire Rate. Number Generated: " + (int)randomNumber);
+        //Debug.Log("Slow Fire Rate. Number Generated: " + (int)randomNumber);
 
         chaosEffectName = new("New Effect: Slow Fire Rate");
 
-        Shooting.Instance.fireRate = 0.4f;
+        Shooting.Instance.fireRate = 0.29f;
     }
 
     // 5
     private void BiggerPlayer()
     {
-        Debug.Log("Big Player. Number Generated: " + (int)randomNumber);
+        //Debug.Log("Big Player. Number Generated: " + (int)randomNumber);
 
         chaosEffectName = new("New Effect: Bigger Player");
 
@@ -348,7 +359,7 @@ public class ChooseEffect : MonoBehaviour
     // 6
     private void TinyPlayer()
     {
-        Debug.Log("Tiny Player. Number Generated: " + (int)randomNumber);
+        //Debug.Log("Tiny Player. Number Generated: " + (int)randomNumber);
 
         chaosEffectName = new("New Effect: Tiny Player");
 
@@ -359,7 +370,7 @@ public class ChooseEffect : MonoBehaviour
     // 7
     private void IcyFloor()
     {
-        Debug.Log("Icy Floor. Number Generated: " + (int)randomNumber);
+        //Debug.Log("Icy Floor. Number Generated: " + (int)randomNumber);
 
         chaosEffectName = new("New Effect: Icy Floor");
 

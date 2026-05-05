@@ -199,7 +199,7 @@ public class PlayerMovement : MonoBehaviour
                 dashBarAmount = 0;
 
                 TriggerDash();
-                Debug.Log("Player Dash");
+                //Debug.Log("Player Dash");
             }
         }
     }
