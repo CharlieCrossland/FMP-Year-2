@@ -75,6 +75,4 @@ public class LargeEnemyMove : MonoBehaviour
             timer -= Time.deltaTime;
         }
     }
-
-
 }

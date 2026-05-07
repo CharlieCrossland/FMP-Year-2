@@ -6,7 +6,6 @@ using Unity.Services.Core;
 using Unity.Services.Leaderboards;
 using Unity.Services.Leaderboards.Models;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class LeaderboardManager : MonoBehaviour
 {

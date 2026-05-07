@@ -38,6 +38,7 @@ public class SavedVariables : MonoBehaviour
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game") && !resetVariables)
         {
             currentScore = 0;
+            currentMoney = 0;
             bulletDamage = 12;
             maxHealth = 2;
             speed = 6;

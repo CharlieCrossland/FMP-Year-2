@@ -109,35 +109,4 @@ public class Shooting : MonoBehaviour
             sr.flipY = false;
         }
     }
-
-    //private void FlipGun()
-    //{
-    //    if (transform.rotation.z >= 90 && flip == false)
-    //    {
-    //        sr.flipX = true;
-
-    //        Debug.Log("Flip");
-
-    //        flip = true;
-    //    }
-    //    else if (transform.rotation.z < 90 && flip == true)
-    //    {
-    //        sr.flipX = false;
-
-    //        flip = false;
-    //    }
-
-    //    if (transform.rotation.z <= -90 && flip == false)
-    //    {
-    //        transform.Rotate(0, 180, 0);
-
-    //        flip = true;
-    //    }
-    //    else if (transform.rotation.z > -90 && flip == true)
-    //    {
-    //        transform.Rotate(0, 180, 0);
-
-    //        flip = false;
-    //    }
-    //}
 }
