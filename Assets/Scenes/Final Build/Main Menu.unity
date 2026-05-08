@@ -262,6 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 183288477}
   - component: {fileID: 183288476}
+  - component: {fileID: 183288478}
   m_Layer: 0
   m_Name: Video Player
   m_TagString: Untagged
@@ -287,7 +288,7 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 3
   m_AspectRatio: 2
-  m_DataSource: 1
+  m_DataSource: 0
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 0.95
   m_AudioOutputMode: 2
@@ -318,6 +319,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1770084907}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &183288478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183288475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff60a83528e55e4f84c1e515c0e85d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoLocation: GlitchEffectV2.mp4
 --- !u!1 &189819738
 GameObject:
   m_ObjectHideFlags: 0
