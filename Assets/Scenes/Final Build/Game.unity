@@ -440,6 +440,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: --- Player Container ---
       objectReference: {fileID: 0}
+    - target: {fileID: 8119840081145588291, guid: 28186fe85ea26ca49a54d6435a82f3da, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8779227419994223339, guid: 28186fe85ea26ca49a54d6435a82f3da, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -440
@@ -450,6 +454,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8925732213208721323, guid: 28186fe85ea26ca49a54d6435a82f3da, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969660859989373946, guid: 28186fe85ea26ca49a54d6435a82f3da, type: 3}
+      propertyPath: m_RenderPostProcessing
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
