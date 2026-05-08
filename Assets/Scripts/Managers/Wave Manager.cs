@@ -12,7 +12,10 @@ public class WaveManager : MonoBehaviour
 
     bool waveSpawned;
     bool generateNewMax;
+
     [SerializeField] private float effectFrequency;
+    private float enemyHealthIncreaseFrequency = 5f;
+    bool enemyHealthIncrease;
 
     [Header("Prefabs")]
     [SerializeField] private Transform enemyParent;
@@ -37,6 +40,8 @@ public class WaveManager : MonoBehaviour
         waveSpawned = false;
         waveCount = 0;
         maxNumberOfEnemies = 3;
+
+        enemyHealthIncrease = false;
     }
 
     private void Update()
@@ -50,6 +55,13 @@ public class WaveManager : MonoBehaviour
         // wave spawning
         if (!waveSpawned && GameStatesManager.Instance.currentState == GameStatesManager.GameStates.SpawnEnemies)
         {
+            if (waveCount % enemyHealthIncreaseFrequency == 0 && !enemyHealthIncrease)
+            {
+                SavedVariables.Instance.maxRegularHealth = SavedVariables.Instance.maxRegularHealth + 110;
+                SavedVariables.Instance.maxBigHealth = SavedVariables.Instance.maxBigHealth + 100;
+                enemyHealthIncrease = true;
+            }
+
             for (numberOfEnemies = 0; numberOfEnemies < maxNumberOfEnemies; numberOfEnemies++)
             {
                 SpawnEnemy();
@@ -59,6 +71,7 @@ public class WaveManager : MonoBehaviour
         }
         else if (waveSpawned && GameStatesManager.Instance.currentState == GameStatesManager.GameStates.SpawnEnemies)
         {
+
             generateNewMax = true;
 
             GameStatesManager.Instance.currentState = GameStatesManager.GameStates.Playing;

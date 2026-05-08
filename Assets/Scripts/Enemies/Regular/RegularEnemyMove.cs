@@ -1,11 +1,13 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class RegularEnemyMove : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
     private GameObject targetOBJ;
     [SerializeField] private Transform target;
+    private EnemyHealth healthScript;
 
     [Header("Editables")]
     [SerializeField] private float moveSpeed;
@@ -18,6 +20,7 @@ public class RegularEnemyMove : MonoBehaviour
     {
         targetOBJ = GameObject.Find("Player Controller");
         target = targetOBJ.transform;
+        healthScript = GetComponent<EnemyHealth>();
 
         SetRandomMoveSpeed();
     }
@@ -29,7 +32,10 @@ public class RegularEnemyMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        FollowTarget();
+        if (healthScript.currentHealth > 0)
+        {
+            FollowTarget();
+        }
     }
 
     private void FollowTarget()

@@ -95,7 +95,7 @@ public class Upgrades : MonoBehaviour
 
             SavedVariables.Instance.currentMoney -= damageCost;
 
-            damageCost += (damageCost / 10);
+            damageCost += (damageCost / 4);
         }
     }
 
@@ -109,7 +109,7 @@ public class Upgrades : MonoBehaviour
 
             HeartUI.Instance.DrawHearts();
 
-            healthCost += (healthCost / 10);
+            healthCost += (healthCost / 4);
         }
     }
 
@@ -117,11 +117,11 @@ public class Upgrades : MonoBehaviour
     {
         if (SavedVariables.Instance.currentMoney >= speedCost)
         {
-            SavedVariables.Instance.speed += (SavedVariables.Instance.speed / 10);
+            SavedVariables.Instance.speed += (SavedVariables.Instance.speed / 15);
 
             SavedVariables.Instance.currentMoney -= speedCost;
 
-            speedCost += (speedCost / 10);
+            speedCost += (speedCost / 4);
         }
     }
 

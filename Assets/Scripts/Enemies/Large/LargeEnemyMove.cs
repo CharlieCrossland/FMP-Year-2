@@ -1,12 +1,13 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class LargeEnemyMove : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
     private GameObject targetOBJ;
     [SerializeField] private Transform target;
+    private EnemyHealth healthScript;
 
     [Header("Editables")]
     [SerializeField] private float moveSpeed;
@@ -27,6 +28,7 @@ public class LargeEnemyMove : MonoBehaviour
     {
         targetOBJ = GameObject.Find("Player Controller");
         target = targetOBJ.transform;
+        healthScript = GetComponent<EnemyHealth>();
 
         SetRandomMoveTimer();
     }
@@ -38,14 +40,16 @@ public class LargeEnemyMove : MonoBehaviour
 
     private void Update()
     {
-
-        if (canMove == true)
+        if (healthScript.currentHealth > 0)
         {
-            MoveEnemy();
-        }
-        else
-        {
-            MoveTimer();
+            if (canMove == true)
+            {
+                MoveEnemy();
+            }
+            else
+            {
+                MoveTimer();
+            }
         }
     }
 

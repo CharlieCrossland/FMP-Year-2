@@ -14,6 +14,10 @@ public class SavedVariables : MonoBehaviour
     public float currentScore;
     public float currentMoney;
 
+    [Header("Enemy Attributes")]
+    public float maxRegularHealth;
+    public float maxBigHealth;
+
     bool resetVariables;
 
     private void Awake()

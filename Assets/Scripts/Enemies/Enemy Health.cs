@@ -1,12 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent (typeof(Rigidbody2D))]
 public class EnemyHealth : MonoBehaviour
 {
-    float currentHealth;
-    [SerializeField] private float maxHealth;
+    public float currentHealth;
     bool scoreSent;
+    [SerializeField] private int scoreToSend;
 
     private Color red = new(1, 0, 0, 1);
     private Color white = new(0, 0, 0, 1);
@@ -14,13 +13,15 @@ public class EnemyHealth : MonoBehaviour
     public Transform currencyPrefab;
     public Transform heartPrefab;
 
-    private Rigidbody2D rb;
     private SpriteRenderer sr;
+    private Animator animator;
+
+    public bool isRegularEnemy;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
         sr = GetComponentInChildren<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -28,7 +29,15 @@ public class EnemyHealth : MonoBehaviour
         sr.color = white;
 
         scoreSent = false;
-        currentHealth = maxHealth;
+
+        if (isRegularEnemy)
+        {
+            currentHealth = SavedVariables.Instance.maxRegularHealth;
+        }
+        else
+        {
+            currentHealth = SavedVariables.Instance.maxBigHealth;
+        }
     }
 
     private void Update()
@@ -43,12 +52,11 @@ public class EnemyHealth : MonoBehaviour
         {
             if (!scoreSent)
             {
-                SavedVariables.Instance.currentScore += 10f;
+                SavedVariables.Instance.currentScore += scoreToSend;
                 scoreSent = true;
             }
 
-            EnemyDrop();
-            Destroy(this.gameObject);
+            StartCoroutine(DeathAnimation());
         }
     }
 
@@ -72,7 +80,7 @@ public class EnemyHealth : MonoBehaviour
         yield break;
     }
 
-    public void EnemyDrop()
+    public void ItemDrop()
     {
         float x = Random.Range(0, 11);
 
@@ -84,7 +92,14 @@ public class EnemyHealth : MonoBehaviour
         {
             Instantiate(currencyPrefab, this.transform.position, this.transform.rotation);
         }
+    }
 
+    IEnumerator DeathAnimation()
+    {
+        animator.SetTrigger("death");
+        yield return new WaitForSeconds(0.65f);
+        ItemDrop();
+        Destroy(this.gameObject);
     }
 
     private void OnDestroy()
