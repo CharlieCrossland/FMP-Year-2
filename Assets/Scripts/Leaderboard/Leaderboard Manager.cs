@@ -59,6 +59,8 @@ public class LeaderboardManager : MonoBehaviour
                 AuthenticationService.Instance.UpdatePlayerNameAsync(inputtedName);
                 LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardID, SavedVariables.Instance.currentScore);
 
+                AuthenticationService.Instance.GetPlayerNameAsync();
+
                 UpdateLeaderboard();
             }
         }
@@ -71,9 +73,7 @@ public class LeaderboardManager : MonoBehaviour
         {
             LeaderboardScoresPage leaderboardScoresPage = await LeaderboardsService.Instance.GetScoresAsync(leaderboardID);
 
-            await AuthenticationService.Instance.GetPlayerNameAsync();
-
-            if(leaderboardContentParent != null)
+            if (leaderboardContentParent != null)
             {
                 foreach (Transform t in leaderboardContentParent)
                 {
@@ -83,7 +83,7 @@ public class LeaderboardManager : MonoBehaviour
                     }
                 }
 
-                // Runs for either the amount of leadboard results OR 5 (entry limit), whichever is lower!
+                // Runs for either the amount of leadboard results OR 5 (entry limit), whichever is lower
                 for (int i = 0; i < Mathf.Min(leaderboardScoresPage.Results.Count, entryLimit); i++)
                 {
                     Transform leaderboardItem = Instantiate(leaderboardItemPrefab, leaderboardContentParent);
