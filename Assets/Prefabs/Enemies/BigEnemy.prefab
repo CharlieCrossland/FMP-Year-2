@@ -279,9 +279,9 @@ MonoBehaviour:
   target: {fileID: 0}
   moveSpeed: 40
   maxMoveTime: 0
-  maxTimer: 1.2
+  maxTimer: 1
   minMoveTimeRandom: 0.32
-  maxMoveTimeRandom: 0.4
+  maxMoveTimeRandom: 0.36
 --- !u!114 &3313265726773571701
 MonoBehaviour:
   m_ObjectHideFlags: 0

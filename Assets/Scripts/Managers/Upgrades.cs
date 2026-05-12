@@ -76,9 +76,9 @@ public class Upgrades : MonoBehaviour
 
     private void DisplayNewValues()
     {
-        float x = SavedVariables.Instance.bulletDamage + (SavedVariables.Instance.bulletDamage / 5);
+        float x = SavedVariables.Instance.bulletDamage + (10 / (SavedVariables.Instance.bulletDamage / 4));
         float y = SavedVariables.Instance.maxHealth + 1;
-        float z = SavedVariables.Instance.speed + (SavedVariables.Instance.speed / 15);
+        float z = SavedVariables.Instance.speed + 0.5f;
 
         newDamage.SetText(x.ToString("F1"));
         newHealth.SetText(y.ToString("F1"));
@@ -91,11 +91,11 @@ public class Upgrades : MonoBehaviour
     {
         if (SavedVariables.Instance.currentMoney >= damageCost)
         {
-            SavedVariables.Instance.bulletDamage += (SavedVariables.Instance.bulletDamage / 3);
+            SavedVariables.Instance.bulletDamage += 10 / (SavedVariables.Instance.bulletDamage / 4);
 
             SavedVariables.Instance.currentMoney -= damageCost;
 
-            damageCost += (damageCost / 4);
+            damageCost += (damageCost / 3);
         }
     }
 
@@ -109,7 +109,7 @@ public class Upgrades : MonoBehaviour
 
             HeartUI.Instance.DrawHearts();
 
-            healthCost += (healthCost / 4);
+            healthCost += (healthCost / 2);
         }
     }
 
@@ -117,11 +117,11 @@ public class Upgrades : MonoBehaviour
     {
         if (SavedVariables.Instance.currentMoney >= speedCost)
         {
-            SavedVariables.Instance.speed += (SavedVariables.Instance.speed / 15);
+            SavedVariables.Instance.speed += 0.5f;
 
             SavedVariables.Instance.currentMoney -= speedCost;
 
-            speedCost += (speedCost / 4);
+            speedCost += (speedCost / 2);
         }
     }
 

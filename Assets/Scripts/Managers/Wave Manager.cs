@@ -71,7 +71,6 @@ public class WaveManager : MonoBehaviour
         }
         else if (waveSpawned && GameStatesManager.Instance.currentState == GameStatesManager.GameStates.SpawnEnemies)
         {
-
             generateNewMax = true;
 
             GameStatesManager.Instance.currentState = GameStatesManager.GameStates.Playing;

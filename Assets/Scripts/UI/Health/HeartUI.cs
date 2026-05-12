@@ -15,7 +15,7 @@ public class HeartUI : MonoBehaviour
 
     private void Start()
     {
-        Invoke("DrawHearts", 0.1f);
+        Invoke("DrawHearts", 0.25f);
     }
 
     public void DrawHearts()

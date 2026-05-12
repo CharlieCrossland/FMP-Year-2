@@ -92,7 +92,7 @@ public class LeaderboardManager : MonoBehaviour
                 }
             }
 
-            await Task.Delay(1000);
+            await Task.Delay(500);
         }
     }
 }
