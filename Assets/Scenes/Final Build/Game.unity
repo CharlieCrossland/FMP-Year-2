@@ -944,6 +944,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 238928728300774468, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -300.44592
+      objectReference: {fileID: 0}
     - target: {fileID: 322636056263619079, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
       propertyPath: m_Type
       value: 0
@@ -984,6 +988,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 13.46343
       objectReference: {fileID: 0}
+    - target: {fileID: 964416652399809776, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
+      propertyPath: m_text
+      value: 'New Max Health:'
+      objectReference: {fileID: 0}
     - target: {fileID: 1181672583345199187, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18
@@ -992,6 +1000,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -4906168767149581727, guid: 5bedcca12ea20ed4a815e29a6cd2159d, type: 3}
+    - target: {fileID: 1600293289088091650, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
+      propertyPath: m_text
+      value: 'Current Max Health:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600293289088091650, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
+      propertyPath: m_margin.z
+      value: -128.60213
+      objectReference: {fileID: 0}
     - target: {fileID: 2178214649678493380, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18
@@ -1088,6 +1104,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 70fcd2a19b376724ebbb2c648e00c5f6, type: 3}
+    - target: {fileID: 5578389887469334422, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -158
+      objectReference: {fileID: 0}
     - target: {fileID: 5929116681101670138, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
       propertyPath: waveCountText
       value: 
