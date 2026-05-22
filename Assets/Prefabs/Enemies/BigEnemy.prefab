@@ -277,7 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6168046609490027960}
   target: {fileID: 0}
-  moveSpeed: 40
+  moveSpeed: 6
   maxMoveTime: 0
   maxTimer: 1
   minMoveTimeRandom: 0.32
