@@ -1125,6 +1125,10 @@ PrefabInstance:
       value: -158
       objectReference: {fileID: 0}
     - target: {fileID: 5929116681101670138, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
+      propertyPath: maxSpawnTimer
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929116681101670138, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
       propertyPath: waveCountText
       value: 
       objectReference: {fileID: 459876643}

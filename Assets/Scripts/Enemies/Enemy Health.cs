@@ -104,7 +104,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnDestroy()
     {
-        WaveManager.Instance.numberOfEnemies--;
+        WaveManager.Instance.numberOfEnemiesInGame--;
         PlayerMovement.Instance.dashBarAmount++;
     }
 }

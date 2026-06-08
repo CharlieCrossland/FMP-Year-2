@@ -5,7 +5,8 @@ public class WaveManager : MonoBehaviour
 {
     public static WaveManager Instance;
 
-    public int numberOfEnemies;
+    public int numberOfEnemiesSpawned;
+    public int numberOfEnemiesInGame;
     public int waveCount;
     private float waveEnemyMultiplier = 2f;
     private float maxNumberOfEnemies;
@@ -33,6 +34,10 @@ public class WaveManager : MonoBehaviour
     private int randomSpawnNumber;
     private Transform spawnSelected;
 
+    [Header("Spawn Timers")]
+    [SerializeField] private float maxSpawnTimer;
+    private float spawnTimer;
+
     private void Awake()
     {
         Instance = this;
@@ -53,7 +58,7 @@ public class WaveManager : MonoBehaviour
     private void WaveCheck()
     {
         // wave spawning
-        if (!waveSpawned && GameStatesManager.Instance.currentState == GameStatesManager.GameStates.SpawnEnemies)
+        if (!waveSpawned && (GameStatesManager.Instance.currentState == GameStatesManager.GameStates.SpawnEnemies || GameStatesManager.Instance.currentState == GameStatesManager.GameStates.Playing))
         {
             if (waveCount % enemyHealthIncreaseFrequency == 0 && !enemyHealthIncrease)
             {
@@ -62,9 +67,20 @@ public class WaveManager : MonoBehaviour
                 enemyHealthIncrease = true;
             }
 
-            for (numberOfEnemies = 0; numberOfEnemies < maxNumberOfEnemies; numberOfEnemies++)
+            if (spawnTimer <= 0)
             {
+                //for (numberOfEnemies = 0; numberOfEnemies < maxNumberOfEnemies; numberOfEnemies++)
+                //{
+                //    SpawnEnemy();
+
+                //    spawnTimer = maxSpawnTimer;
+                //}
+
                 SpawnEnemy();
+            }
+            else
+            {
+                spawnTimer -= Time.deltaTime;
             }
 
             StopEnemySpawn();
@@ -86,19 +102,21 @@ public class WaveManager : MonoBehaviour
 
     private void CheckForAllEnemiesDead()
     {
-        if (numberOfEnemies <= 0)
+        if (numberOfEnemiesInGame <= 0 && waveSpawned == true)
         {
             waveCount++;
 
             if (waveCount % effectFrequency == 0)
             {
                 waveSpawned = false;
+                numberOfEnemiesSpawned = 0;
                 GameStatesManager.Instance.currentState = GameStatesManager.GameStates.GracePeriod;
                 return;
             }
             else
             {
                 waveSpawned = false;
+                numberOfEnemiesSpawned = 0;
                 GameStatesManager.Instance.currentState = GameStatesManager.GameStates.SpawnEnemies;
                 return;
             }
@@ -111,6 +129,10 @@ public class WaveManager : MonoBehaviour
         PickEnemy();
 
         Instantiate(enemyPrefab, spawnSelected.transform.position, transform.rotation, enemyParent);
+
+        numberOfEnemiesSpawned++;
+        numberOfEnemiesInGame++;
+        spawnTimer = maxSpawnTimer;
     }
 
     // pick random spawn for enemy to spawn at
@@ -188,7 +210,7 @@ public class WaveManager : MonoBehaviour
 
     private void StopEnemySpawn()
     {
-        if (numberOfEnemies >= maxNumberOfEnemies)
+        if (numberOfEnemiesSpawned >= maxNumberOfEnemies)
         {
             waveSpawned = true;
         }
