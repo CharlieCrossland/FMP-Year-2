@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class ChooseEffect : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class ChooseEffect : MonoBehaviour
 
     public bool haveMask;
 
+    private bool startRandomEffect;
+
     [Header("Lists")]
     public static List<int> avoidList = new List<int>();
     public static List<int> numbersNotAllowedIn2RandomEffects = new List<int>();
@@ -24,6 +28,13 @@ public class ChooseEffect : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject playerController;
     [SerializeField] private GameObject toxicGasOverlay;
+
+    [Header("Meteorites")]
+    [SerializeField] private float maxSpawnMeteoriteTimer;
+    private float spawnMeteoriteTimer;
+    Vector2 meteoriteSpawnPoint;
+    private Vector2 meteoriteSpawnSize;
+    private bool startMeteoriteSpawn;
 
     private void Awake()
     {
@@ -53,6 +64,11 @@ public class ChooseEffect : MonoBehaviour
     void Update()
     {
         CheckGameState();
+
+        if (startMeteoriteSpawn)
+        {
+            SetMeteoriteSpawnPoint();
+        }
     }
 
     // checking if it is grace period
@@ -96,6 +112,9 @@ public class ChooseEffect : MonoBehaviour
         PlayerMovement.Instance.icyFloor = false;
         Shooting.Instance.fireRate = 0.16f;
 
+        startMeteoriteSpawn = false;
+        startRandomEffect = false;
+
         // toxicGasOverlay.SetActive(false);
     }
 
@@ -104,7 +123,7 @@ public class ChooseEffect : MonoBehaviour
     // function then happens
     private void RandomEffect()
     {
-        randomNumber = Random.Range(0, effectAmount + 1);
+        randomNumber = Random.Range(1, 2);
 
         // check if number is in avoid list
         if (isNumberInAvoidList(randomNumber))
@@ -311,10 +330,24 @@ public class ChooseEffect : MonoBehaviour
     // 1
     private void Meteorites()
     {
-        //Debug.Log("Meteorites. Number Generated: " + (int)randomNumber);
+        startMeteoriteSpawn = true;
 
-        chaosEffectName = new("New Effect: Meteorites (Not Implemented)");
+        chaosEffectName = new("New Effect: Meteorites");
+    }
 
+    private void SetMeteoriteSpawnPoint()
+    {
+        if (spawnMeteoriteTimer <= 0)
+        {
+            // do
+            meteoriteSpawnPoint = ((Vector2)transform.localPosition + new Vector2(0, 0)) + new Vector2(Random.Range(-meteoriteSpawnSize.x / 2, meteoriteSpawnSize.x / 2), Random.Range(-meteoriteSpawnSize.y / 2, meteoriteSpawnSize.y / 2));
+
+            spawnMeteoriteTimer = maxSpawnMeteoriteTimer;
+        }
+        else
+        {
+            spawnMeteoriteTimer -= Time.deltaTime;
+        }
     }
 
     // 2
