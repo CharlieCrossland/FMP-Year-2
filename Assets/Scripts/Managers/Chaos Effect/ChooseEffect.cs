@@ -33,8 +33,8 @@ public class ChooseEffect : MonoBehaviour
     [SerializeField] private float maxSpawnMeteoriteTimer;
     private float spawnMeteoriteTimer;
     Vector2 meteoriteSpawnPoint;
-    private Vector2 meteoriteSpawnSize;
     private bool startMeteoriteSpawn;
+    [SerializeField] private GameObject meteoritePrefab;
 
     private void Awake()
     {
@@ -339,8 +339,9 @@ public class ChooseEffect : MonoBehaviour
     {
         if (spawnMeteoriteTimer <= 0)
         {
-            // do
-            meteoriteSpawnPoint = ((Vector2)transform.localPosition + new Vector2(0, 0)) + new Vector2(Random.Range(-meteoriteSpawnSize.x / 2, meteoriteSpawnSize.x / 2), Random.Range(-meteoriteSpawnSize.y / 2, meteoriteSpawnSize.y / 2));
+            meteoriteSpawnPoint = playerController.transform.position;
+
+            Instantiate(meteoritePrefab, meteoriteSpawnPoint, playerController.transform.rotation);
 
             spawnMeteoriteTimer = maxSpawnMeteoriteTimer;
         }

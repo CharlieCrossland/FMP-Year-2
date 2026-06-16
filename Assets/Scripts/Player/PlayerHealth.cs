@@ -109,6 +109,14 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Meteorite"))
+        {
+            TakeDamage();
+        }
+    }
+
     IEnumerator HitAudio()
     {
         hitSource.pitch = healthAmount - 2;

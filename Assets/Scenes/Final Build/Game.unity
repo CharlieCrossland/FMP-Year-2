@@ -1029,6 +1029,10 @@ PrefabInstance:
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2288172329987330904, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
+      propertyPath: meteoritePrefab
+      value: 
+      objectReference: {fileID: 1423675717078541597, guid: 1a696b0bf5d7c4e4cac11907b2a709fc, type: 3}
+    - target: {fileID: 2288172329987330904, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
       propertyPath: toxicGasOverlay
       value: 
       objectReference: {fileID: 0}
@@ -1039,6 +1043,10 @@ PrefabInstance:
     - target: {fileID: 2288172329987330904, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
       propertyPath: maxMeteoriteTimer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2288172329987330904, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
+      propertyPath: maxSpawnMeteoriteTimer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3150359060811140795, guid: 65a4056151d49d54f826423ee7528c1c, type: 3}
       propertyPath: m_LocalPosition.y
