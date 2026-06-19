@@ -7,6 +7,7 @@ public class Meteorites : MonoBehaviour
     [SerializeField] private ParticleSystem explosionEffect;
     [SerializeField] private CircleCollider2D col;
     [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private GameObject parent;
     bool particlePlayed;
 
     private void Awake()
@@ -35,6 +36,7 @@ public class Meteorites : MonoBehaviour
             Hide();
             EnableHitBox();
             PlayExplosionEffect();
+            Destroy(parent, 2f);
         }
     }
 

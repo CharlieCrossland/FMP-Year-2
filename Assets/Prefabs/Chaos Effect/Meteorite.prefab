@@ -4983,6 +4983,7 @@ MonoBehaviour:
   explosionEffect: {fileID: 87678376079773807}
   col: {fileID: 34745476510589318}
   sr: {fileID: 8940606891699576063}
+  parent: {fileID: 1423675717078541597}
 --- !u!212 &8940606891699576063
 SpriteRenderer:
   m_ObjectHideFlags: 0

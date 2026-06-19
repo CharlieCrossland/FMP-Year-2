@@ -67,7 +67,10 @@ public class ChooseEffect : MonoBehaviour
 
         if (startMeteoriteSpawn)
         {
-            SetMeteoriteSpawnPoint();
+            if (GameStatesManager.Instance.currentState == GameStatesManager.GameStates.Playing || GameStatesManager.Instance.currentState == GameStatesManager.GameStates.SpawnEnemies)
+            {
+                SetMeteoriteSpawnPoint();
+            }
         }
     }
 
