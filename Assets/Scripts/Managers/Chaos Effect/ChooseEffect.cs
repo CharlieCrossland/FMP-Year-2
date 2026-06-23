@@ -126,7 +126,7 @@ public class ChooseEffect : MonoBehaviour
     // function then happens
     private void RandomEffect()
     {
-        randomNumber = Random.Range(1, 2);
+        randomNumber = Random.Range(1, effectAmount + 1);
 
         // check if number is in avoid list
         if (isNumberInAvoidList(randomNumber))

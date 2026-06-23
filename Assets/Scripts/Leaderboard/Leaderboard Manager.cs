@@ -21,7 +21,7 @@ public class LeaderboardManager : MonoBehaviour
     public static List<GameObject> entryAmountList = new List<GameObject>();
     private float entryLimit = 5f;
 
-    private string leaderboardID = "Global_Leaderboard";
+    private string leaderboardID = "Showcase_Leaderboard";
 
     private void Awake()
     {
@@ -57,9 +57,9 @@ public class LeaderboardManager : MonoBehaviour
                 leaderboardParent.SetActive(true);
 
                 AuthenticationService.Instance.UpdatePlayerNameAsync(inputtedName);
+                AuthenticationService.Instance.GetPlayerNameAsync();
                 LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardID, SavedVariables.Instance.currentScore);
 
-                AuthenticationService.Instance.GetPlayerNameAsync();
 
                 UpdateLeaderboard();
             }
